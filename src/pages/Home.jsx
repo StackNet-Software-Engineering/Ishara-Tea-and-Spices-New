@@ -34,7 +34,7 @@ function Home({ lang }) {
   const [currentFeature, setCurrentFeature] = useState(0);
 
   const heroMedia = [
-    { type: 'video', src: '/CL1.mp4' },
+    { type: 'video', src: '/product img/CL1.mp4' },
     { type: 'image', src: '/product img/Home1.JPG' },
     { type: 'image', src: '/product img/Home2.JPG' },
     { type: 'image', src: '/product img/Home3.JPG' },
