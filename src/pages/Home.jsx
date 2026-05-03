@@ -1,131 +1,244 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
+// ─── Cloudinary optimizer ───────────────────────────────────────────────────
+const cdn = (url, opts = "w_1200,q_auto,f_auto") => {
+  if (!url || !url.includes("res.cloudinary.com")) return url;
+  return url.replace("/upload/", `/upload/${opts}/`);
+};
+const cdnThumb = (url) => cdn(url, "w_600,q_auto,f_auto");
+
+// ─── Full trilingual content ─────────────────────────────────────────────────
 const content = {
   en: {
+    brandName: "Ishara Tea & Spices",
     title: "Authentic Ceylon Tea & Spices",
     desc: "Welcome to Ishara Tea & Spices Center. We bring you the finest selection of handpicked Ceylon tea and traditional Sri Lankan spices. Our products are sourced directly from local plantations and farmers, ensuring freshness, quality, and authentic island flavor.",
+    exploreBtn: "Explore our Heritage",
     heritage: "For generations, Sri Lanka has been known as the home of the world's finest tea. At Ishara Tea & Spices Center, we proudly continue this tradition by offering premium products with warm Sri Lankan hospitality.",
     historyTitle: "The History of Sri Lanka Ceylon Tea",
-    historyDesc: `Sri Lanka, formerly known as Ceylon, has a rich history of tea cultivation dating back to 1867 when James Taylor planted the first tea seedlings in the central highlands. 
-      Ceylon Tea quickly became famous worldwide for its unique flavor, aroma, and high quality. 
-      Over generations, the tea industry has grown into a symbol of Sri Lankan culture and a major export product, 
-      offering varieties like Black, Green, White, and specialty blended teas. 
-      Ishara Tea & Spices Center continues this proud heritage by delivering authentic Ceylon tea to visitors and tea lovers alike.`
+    historyDesc: `Sri Lanka, formerly known as Ceylon, has a rich history of tea cultivation dating back to 1867 when James Taylor planted the first tea seedlings in the central highlands.\n\nCeylon Tea quickly became famous worldwide for its unique flavor, aroma, and high quality.\n\nOver generations, the tea industry has grown into a symbol of Sri Lankan culture and a major export product, offering varieties like Black, Green, White, and specialty blended teas.\n\nIshara Tea & Spices Center continues this proud heritage by delivering authentic Ceylon tea to visitors and tea lovers alike.`,
+    galleryTitle: "Our Plantation Life",
+    features: [
+      { title: "100% Ceylon Tea",    desc: "Black, Green, White & Broken Tea selections" },
+      { title: "Herbal Collection",  desc: "Natural wellness teas for health and relaxation" },
+      { title: "Premium Spices",     desc: "Ceylon Cinnamon, Pepper, Cardamom, & more" },
+      { title: "Tourist Trusted",    desc: "Fixed prices • English speaking • Gift packs" },
+    ],
   },
   de: {
+    brandName: "Ishara Tee & Gewürze",
     title: "Authentischer Ceylon Tee & Gewürze",
-    desc: "Wir bieten hochwertigen Ceylon Tee und traditionelle Gewürze direkt von lokalen Plantagen.",
-    heritage: "Sri Lanka ist weltweit bekannt für seinen hochwertigen Tee. Wir setzen diese Tradition mit Stolz fort.",
+    desc: "Willkommen im Ishara Tee & Gewürzezentrum. Wir bieten Ihnen die feinste Auswahl an handverlesenem Ceylon-Tee und traditionellen sri-lankischen Gewürzen, direkt von lokalen Plantagen und Bauern bezogen.",
+    exploreBtn: "Unser Erbe entdecken",
+    heritage: "Seit Generationen ist Sri Lanka als Heimat des weltbesten Tees bekannt. Im Ishara Tee & Gewürzezentrum setzen wir diese Tradition mit Stolz fort und bieten Premiumprodukte mit herzlicher sri-lankischer Gastfreundschaft.",
     historyTitle: "Die Geschichte des Ceylon-Tees in Sri Lanka",
-    historyDesc: "Sri Lanka, früher Ceylon, hat eine lange Geschichte des Teeanbaus, die 1867 begann, als James Taylor die ersten Teepflanzen in den zentralen Hochländern pflanzte..."
+    historyDesc: `Sri Lanka, früher als Ceylon bekannt, hat eine lange Geschichte des Teeanbaus, die 1867 begann, als James Taylor die ersten Teepflanzen in den zentralen Hochländern pflanzte.\n\nCeylon-Tee wurde schnell weltweit für seinen einzigartigen Geschmack, sein Aroma und seine hohe Qualität berühmt.\n\nÜber Generationen hinweg ist die Teeindustrie zu einem Symbol der sri-lankischen Kultur und einem wichtigen Exportprodukt geworden, das Sorten wie Schwarz-, Grün-, Weiß- und Spezialmischungstees umfasst.\n\nIshara Tee & Gewürze setzt dieses stolze Erbe fort und liefert authentischen Ceylon-Tee an Besucher und Teeliebhaber gleichermaßen.`,
+    galleryTitle: "Unser Plantagen-Leben",
+    features: [
+      { title: "100% Ceylon Tee",      desc: "Schwarz-, Grün-, Weiß- und gebrochener Tee" },
+      { title: "Kräuterkollektion",     desc: "Natürliche Wellnesstees für Gesundheit und Entspannung" },
+      { title: "Premium Gewürze",       desc: "Ceylon Zimt, Pfeffer, Kardamom und mehr" },
+      { title: "Touristenvertrauen",    desc: "Festpreise • Englischsprachig • Geschenkkörbe" },
+    ],
   },
   ru: {
+    brandName: "Ishara Чай и Специи",
     title: "Настоящий цейлонский чай и специи",
-    desc: "Мы предлагаем лучший цейлонский чай и традиционные специи напрямую от местных производителей.",
-    heritage: "Шри-Ланка известна во всем мире своим чаем. Мы продолжаем эту традицию.",
+    desc: "Добро пожаловать в центр Ishara Tea & Spices. Мы предлагаем лучший выбор отборного цейлонского чая и традиционных шри-ланкийских специй, поступающих напрямую от местных плантаций и фермеров.",
+    exploreBtn: "Исследовать наследие",
+    heritage: "На протяжении поколений Шри-Ланка известна как родина лучшего чая в мире. В центре Ishara мы с гордостью продолжаем эту традицию, предлагая премиальные продукты с тёплым шри-ланкийским гостеприимством.",
     historyTitle: "История цейлонского чая в Шри-Ланке",
-    historyDesc: "Шри-Ланка, ранее известная как Цейлон, имеет богатую историю выращивания чая, начавшуюся в 1867 году с посадки первых чайных кустов Джеймсом Тейлором..."
+    historyDesc: `Шри-Ланка, ранее известная как Цейлон, имеет богатую историю выращивания чая, начавшуюся в 1867 году, когда Джеймс Тейлор посадил первые чайные кусты в центральном нагорье.\n\nЦейлонский чай быстро прославился во всём мире своим уникальным вкусом, ароматом и высоким качеством.\n\nНа протяжении поколений чайная промышленность стала символом шри-ланкийской культуры и важным экспортным продуктом, предлагая такие сорта, как чёрный, зелёный, белый и специальные купажированные чаи.\n\nIshara Tea & Spices продолжает эту гордую традицию, доставляя настоящий цейлонский чай посетителям и любителям чая.`,
+    galleryTitle: "Жизнь на плантации",
+    features: [
+      { title: "100% Цейлонский чай",  desc: "Чёрный, зелёный, белый и ломаный чай" },
+      { title: "Травяная коллекция",   desc: "Натуральные велнес-чаи для здоровья и отдыха" },
+      { title: "Премиум специи",       desc: "Цейлонская корица, перец, кардамон и другое" },
+      { title: "Доверие туристов",     desc: "Фиксированные цены • Говорим по-английски • Подарочные наборы" },
+    ],
   },
 };
 
-function Home({ lang }) {
-  const [currentMedia, setCurrentMedia] = useState(0);
-  const [currentFeature, setCurrentFeature] = useState(0);
+// ─── Hero media ───────────────────────────────────────────────────────────────
+const heroMedia = [
+  {
+    type: "video",
+    src: "https://res.cloudinary.com/dp1jwsapk/video/upload/q_auto,f_auto/v1777730496/C3067_ffeobb.mp4",
+    poster: "https://res.cloudinary.com/dp1jwsapk/image/upload/w_800,q_30,f_auto/v1777731478/DSC08410_qmgcah.jpg"
+  },
+  { type: "image", src: cdn("https://res.cloudinary.com/dp1jwsapk/image/upload/v1777731478/DSC08410_qmgcah.jpg") },
+  { type: "image", src: cdn("https://res.cloudinary.com/dp1jwsapk/image/upload/v1777731478/DSC08417_xq4tb3.jpg") },
+  { type: "image", src: cdn("https://res.cloudinary.com/dp1jwsapk/image/upload/v1777731476/DSC08425_dfnxkg.jpg") },
+  { type: "image", src: cdn("https://res.cloudinary.com/dp1jwsapk/image/upload/v1777731476/DSC08422_xhs0th.jpg") },
+  { type: "image", src: cdn("https://res.cloudinary.com/dp1jwsapk/image/upload/v1777731475/DSC08419_x1x2gg.jpg") },
+  {
+    type: "video",
+    src: "https://res.cloudinary.com/dp1jwsapk/video/upload/q_auto,f_auto/v1777812596/C3022_bbmjxc.mp4",
+    poster: "https://res.cloudinary.com/dp1jwsapk/image/upload/w_800,q_30,f_auto/v1777731476/DSC08422_xhs0th.jpg"
+  },
+];
 
-  const heroMedia = [
-    { type: 'video', src: '/product img/CL1.mp4' },
-    { type: 'image', src: '/product img/Home1.JPG' },
-    { type: 'image', src: '/product img/Home2.JPG' },
-    { type: 'image', src: '/product img/Home3.JPG' },
-    { type: 'image', src: '/product img/Home4.JPG' }
-  ];
+// ─── Gallery ──────────────────────────────────────────────────────────────────
+const galleryImages = [
+  "https://res.cloudinary.com/dp1jwsapk/image/upload/v1777731478/DSC08410_qmgcah.jpg",
+  "https://res.cloudinary.com/dp1jwsapk/image/upload/v1777731478/DSC08417_xq4tb3.jpg",
+  "https://res.cloudinary.com/dp1jwsapk/image/upload/v1777731476/DSC08425_dfnxkg.jpg",
+  "https://res.cloudinary.com/dp1jwsapk/image/upload/v1777731476/DSC08422_xhs0th.jpg",
+  "https://res.cloudinary.com/dp1jwsapk/image/upload/v1777731475/DSC08419_x1x2gg.jpg",
+  "https://res.cloudinary.com/dp1jwsapk/image/upload/v1777750948/DSC08295_ige8wt.jpg",
+  "https://res.cloudinary.com/dp1jwsapk/image/upload/v1777750949/DSC08219_npsh1p.jpg",
+  "https://res.cloudinary.com/dp1jwsapk/image/upload/v1777750950/DSC08222_icbovq.jpg",
+  "https://res.cloudinary.com/dp1jwsapk/image/upload/v1777750950/DSC08227_vggqjo.jpg",
+  "https://res.cloudinary.com/dp1jwsapk/image/upload/v1777744881/DSC08052_igwyhb.jpg",
+].map(cdnThumb);
 
-  const features = [
-    { title: "100% Ceylon Tea", desc: "Black, Green, White & Broken Tea selections", },
-    { title: "Herbal Collection", desc: "Natural wellness teas for health and relaxation", },
-    { title: "Premium Spices", desc: "Ceylon Cinnamon, Pepper, Cardamom, & more", },
-    { title: "Tourist Trusted", desc: "Fixed prices • English speaking • Gift packs", }
-  ];
-
-  const galleryImages = [
-    '/product img/Home5.JPG',
-    '/product img/Home6.JPG',
-    '/product img/Home7.JPG',
-    '/product img/Home8.JPG',
-    '/product img/Home9.JPG',
-    '/product img/Home10.JPG',
-    '/product img/Home11.JPG',
-    '/product img/Home12.JPG',
-    '/product img/Home13.JPG',
-    '/product img/Home14.JPG'
-  ];
+// ─── Lazy Image ───────────────────────────────────────────────────────────────
+function LazyImage({ src, alt, className }) {
+  const ref = useRef(null);
+  const [loaded, setLoaded] = useState(false);
+  const [inView, setInView] = useState(false);
 
   useEffect(() => {
-    const timer = setInterval(() => {
-      setCurrentMedia((prev) => (prev + 1) % heroMedia.length);
-    }, 6000);
-    const featureTimer = setInterval(() => {
-      setCurrentFeature((prev) => (prev + 1) % features.length);
-    }, 4000);
-    return () => {
-      clearInterval(timer);
-      clearInterval(featureTimer);
-    };
+    const el = ref.current;
+    if (!el) return;
+    const observer = new IntersectionObserver(
+      ([entry]) => { if (entry.isIntersecting) { setInView(true); observer.disconnect(); } },
+      { rootMargin: "200px" }
+    );
+    observer.observe(el);
+    return () => observer.disconnect();
   }, []);
 
   return (
+    <div ref={ref} className={`${className} bg-gray-100`}>
+      {inView && (
+        <img
+          src={src}
+          alt={alt}
+          loading="lazy"
+          onLoad={() => setLoaded(true)}
+          className={`w-full h-full object-cover transition-opacity duration-500 ${loaded ? "opacity-100" : "opacity-0"}`}
+        />
+      )}
+    </div>
+  );
+}
+
+// ─── Main Component ───────────────────────────────────────────────────────────
+function Home({ lang = "en" }) {
+  const [currentMedia, setCurrentMedia] = useState(0);
+  const [currentFeature, setCurrentFeature] = useState(0);
+  const videoRef = useRef(null);
+
+  const t = content[lang];
+  const features = t.features;
+
+  // Hero slideshow
+  useEffect(() => {
+    const current = heroMedia[currentMedia];
+    if (current.type === "image") {
+      const timer = setTimeout(() => setCurrentMedia((p) => (p + 1) % heroMedia.length), 6000);
+      return () => clearTimeout(timer);
+    }
+  }, [currentMedia]);
+
+  // Feature slider
+  useEffect(() => {
+    const timer = setInterval(() => setCurrentFeature((p) => (p + 1) % features.length), 4000);
+    return () => clearInterval(timer);
+  }, [features.length]);
+
+  // Play video when active
+  useEffect(() => {
+    if (heroMedia[currentMedia].type === "video" && videoRef.current) {
+      videoRef.current.currentTime = 0;
+      videoRef.current.play().catch(() => {});
+    }
+  }, [currentMedia]);
+
+  return (
     <div className="relative min-h-screen overflow-hidden bg-[#fdfaf5]">
-      {/* PROFESSIONAL MESH GRADIENT BACKGROUND */}
+
+      {/* BACKGROUND — CSS-only keyframe blobs, GPU composited, zero JS overhead */}
       <div className="fixed inset-0 pointer-events-none z-0 overflow-hidden">
         <div
           className="absolute inset-0 opacity-5"
           style={{
-            backgroundImage: `url("https://images.unsplash.com/photo-1596040033229-a9821ebd058d")`,
-            backgroundSize: 'cover',
-            backgroundPosition: 'center',
-            filter: 'contrast(120%) brightness(100%) blur(2px)'
+            backgroundImage: `url("https://images.unsplash.com/photo-1596040033229-a9821ebd058d?w=400&q=40")`,
+            backgroundSize: "cover",
+            backgroundPosition: "center",
+            filter: "blur(2px)",
           }}
         />
-        <motion.div animate={{ x: ['-10vw', '30vw', '-10vw'], y: ['-10vh', '40vh', '-10vh'], rotate: [0, 180, 360] }} transition={{ duration: 30, repeat: Infinity, ease: "linear" }} className="absolute w-[80vw] h-[80vw] md:w-[60vw] md:h-[60vw] rounded-full bg-[#1B4332]/[0.08] blur-[80px] md:blur-[120px]" />
-        <motion.div animate={{ x: ['50vw', '10vw', '50vw'], y: ['60vh', '10vh', '60vh'], rotate: [360, 180, 0] }} transition={{ duration: 35, repeat: Infinity, ease: "linear" }} className="absolute w-[70vw] h-[70vw] md:w-[50vw] md:h-[50vw] rounded-full bg-[#E9C46A]/[0.08] blur-[70px] md:blur-[100px]" />
-        <motion.div animate={{ x: ['10vw', '60vw', '10vw'], y: ['80vh', '30vh', '80vh'] }} transition={{ duration: 28, repeat: Infinity, ease: "linear" }} className="absolute w-[60vw] h-[60vw] md:w-[40vw] md:h-[40vw] rounded-full bg-[#2A9D8F]/[0.08] blur-[60px] md:blur-[90px]" />
+        <div className="absolute rounded-full" style={{
+          width:"60vw", height:"60vw",
+          background:"rgba(27,67,50,0.06)", filter:"blur(80px)",
+          willChange:"transform", animation:"homeBlob1 30s linear infinite",
+        }} />
+        <div className="absolute rounded-full" style={{
+          width:"50vw", height:"50vw",
+          background:"rgba(233,196,106,0.06)", filter:"blur(70px)",
+          willChange:"transform", animation:"homeBlob2 35s linear infinite",
+        }} />
+        <style>{`
+          @keyframes homeBlob1 {
+            0%,100% { transform: translate(-10vw,-10vh); }
+            50%      { transform: translate(30vw,40vh); }
+          }
+          @keyframes homeBlob2 {
+            0%,100% { transform: translate(50vw,60vh); }
+            50%      { transform: translate(10vw,10vh); }
+          }
+        `}</style>
       </div>
 
-      {/* CONTENT WRAPPER */}
       <div className="relative z-10 w-full">
-        {/* HERO SECTION */}
-        <div className="relative w-full h-[95vh] flex flex-col items-center justify-center text-center px-6 overflow-hidden bg-[#fdfaf5]">
-          {heroMedia.map((media, index) => {
-            const isActive = index === currentMedia;
-            if (media.type === 'video') {
+
+        {/* ── HERO ─────────────────────────────────────────────────────────── */}
+        <div
+          className="relative w-full h-[95vh] flex flex-col items-center justify-center text-center px-6 overflow-hidden cursor-pointer"
+          onClick={() => setCurrentMedia((p) => (p + 1) % heroMedia.length)}
+        >
+          <AnimatePresence>
+            {heroMedia.map((media, index) => {
+              if (index !== currentMedia) return null;
+              if (media.type === "video") {
+                return (
+                  <motion.video
+                    key={`hero-video-${media.src}`}
+                    ref={index === currentMedia ? videoRef : null}
+                    muted
+                    playsInline
+                    preload="metadata"
+                    poster={media.poster}
+                    onEnded={() => setCurrentMedia((p) => (p + 1) % heroMedia.length)}
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    exit={{ opacity: 0 }}
+                    transition={{ duration: 1 }}
+                    className="absolute inset-0 w-full h-full object-cover z-0"
+                  >
+                    <source src={media.src} type="video/mp4" />
+                  </motion.video>
+                );
+              }
               return (
-                <video
-                  key={index}
-                  autoPlay
-                  loop
-                  muted
-                  playsInline
-                  className={`absolute top-0 left-0 w-full h-full object-cover z-0 transition-opacity duration-1000 ${isActive ? "opacity-100" : "opacity-0"}`}
-                >
-                  <source src={media.src} type="video/mp4" />
-                </video>
-              );
-            } else {
-              return (
-                <img
-                  key={index}
+                <motion.img
+                  key={`hero-img-${index}`}
                   src={media.src}
-                  alt={`Hero background ${index}`}
-                  className={`absolute top-0 left-0 w-full h-full object-cover z-0 transition-opacity duration-1000 ${isActive ? "opacity-100" : "opacity-0"}`}
+                  alt={`Hero ${index}`}
+                  initial={{ opacity: 0, scale: 1 }}
+                  animate={{ opacity: 1, scale: 1.05 }}
+                  exit={{ opacity: 0 }}
+                  transition={{ opacity: { duration: 1 }, scale: { duration: 6, ease: "linear" } }}
+                  className="absolute inset-0 w-full h-full object-cover z-0"
                 />
               );
-            }
-          })}
-          <div className="absolute inset-0 bg-black/40 z-0 pointer-events-none"></div>
+            })}
+          </AnimatePresence>
 
-          {/* Aesthetic Brand Overlay - NO BLACK */}
-          {/*  <div className="absolute inset-0 bg-[#1B4332]/45 backdrop-blur-[2px]"></div>*/}
+          <div className="absolute inset-0 bg-black/60 z-0 pointer-events-none" />
 
           <motion.div
             initial={{ opacity: 0, scale: 0.95 }}
@@ -133,32 +246,44 @@ function Home({ lang }) {
             transition={{ duration: 1 }}
             className="relative z-10 max-w-5xl p-10 md:p-20"
           >
-            <motion.h1
-              className="text-6xl md:text-8xl premium-title font-bold mb-6 text-white drop-shadow-xl"
-            >
-              Ishara Tea & Spices
-            </motion.h1>
+            <h1 className="text-6xl md:text-8xl old-english font-normal mb-6 text-white drop-shadow-xl">
+              {t.brandName}
+            </h1>
             <h2 className="text-2xl md:text-4xl font-medium mb-8 text-[#D4A373] tracking-wide uppercase drop-shadow-md">
-              {content[lang].title}
+              {t.title}
             </h2>
             <div className="w-24 h-1 bg-[#D4A373] mx-auto mb-8" />
             <p className="max-w-2xl mx-auto text-lg md:text-xl leading-relaxed text-white/90 mb-10 font-medium drop-shadow-md">
-              {content[lang].desc}
+              {t.desc}
             </p>
             <button
-              onClick={() => window.scrollTo({ top: window.innerHeight, behavior: 'smooth' })}
+              onClick={(e) => {
+                e.stopPropagation();
+                window.scrollTo({ top: window.innerHeight, behavior: "smooth" });
+              }}
               className="bg-[#1B4332] text-white px-10 py-4 rounded-full font-bold hover:scale-105 transition shadow-xl uppercase tracking-widest text-sm"
             >
-              Explore our Heritage
+              {t.exploreBtn}
             </button>
           </motion.div>
+
+          {/* Slide dots */}
+          <div className="absolute bottom-6 flex gap-2 z-10">
+            {heroMedia.map((_, i) => (
+              <button
+                key={i}
+                onClick={(e) => { e.stopPropagation(); setCurrentMedia(i); }}
+                className={`rounded-full transition-all duration-300 ${i === currentMedia ? "w-6 h-2 bg-[#D4A373]" : "w-2 h-2 bg-white/50"}`}
+              />
+            ))}
+          </div>
         </div>
 
-        {/* FEATURES SLIDER */}
-        <div className="py-12 px-6 max-w-4xl mx-auto overflow-hidden min-h-[250px] relative flex flex-col items-center justify-center">
+        {/* ── FEATURES SLIDER ──────────────────────────────────────────────── */}
+        <div className="py-12 px-6 max-w-4xl mx-auto min-h-[250px] relative flex flex-col items-center justify-center overflow-hidden">
           <AnimatePresence mode="wait">
             <motion.div
-              key={currentFeature}
+              key={`${lang}-${currentFeature}`}
               initial={{ opacity: 0, x: 100 }}
               animate={{ opacity: 1, x: 0 }}
               exit={{ opacity: 0, x: -100 }}
@@ -173,52 +298,65 @@ function Home({ lang }) {
               </p>
             </motion.div>
           </AnimatePresence>
-
-          {/* Timeline Indicators */}
           <div className="absolute bottom-4 flex gap-3">
             {features.map((_, idx) => (
               <div
                 key={idx}
-                className={`h-2 rounded-full transition-all duration-500 ${idx === currentFeature ? 'w-8 bg-[#D4A373]' : 'w-2 bg-gray-300'}`}
+                onClick={() => setCurrentFeature(idx)}
+                className={`h-2 rounded-full transition-all duration-500 cursor-pointer ${idx === currentFeature ? "w-8 bg-[#D4A373]" : "w-2 bg-gray-300"}`}
               />
             ))}
           </div>
         </div>
 
-        {/* HISTORY SECTION */}
-        <div className="relative pt-6 pb-12 px-6 mb-10 whitespace-pre-line">
+        {/* ── HISTORY SECTION ──────────────────────────────────────────────── */}
+        <div className="relative pt-2 pb-6 px-6 mb-2">
           <div className="max-w-7xl mx-auto p-10 md:p-16 relative overflow-hidden backdrop-blur-sm">
-            {/* Background Accent */}
-            <div className="absolute top-0 right-0 w-64 h-64 bg-accent-gold/5 rounded-full blur-[100px] -mr-32 -mt-32"></div>
-
+            <div className="absolute top-0 right-0 w-64 h-64 bg-[#E9C46A]/5 rounded-full blur-[100px] -mr-32 -mt-32" />
             <motion.div
               initial={{ opacity: 0, x: -20 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
             >
-              <h2 className="text-4xl md:text-5xl text-primary-green font-bold mb-10 premium-title">
-                {content[lang].historyTitle}
+              <h2 className="text-4xl md:text-5xl text-[#1B4332] font-bold mb-10 premium-title">
+                {t.historyTitle}
               </h2>
-              <div className="w-20 h-1 bg-accent-gold mb-10" />
+              <div className="w-20 h-1 bg-[#D4A373] mb-10" />
               <p className="text-gray-700 text-lg md:text-xl leading-relaxed whitespace-pre-line">
-                {content[lang].historyDesc}
+                {t.historyDesc}
               </p>
-              <p className="mt-12 text-primary-green/70 font-medium italic">
-                {content[lang].heritage}
+              <p className="mt-12 text-[#1B4332]/70 font-medium italic">
+                {t.heritage}
               </p>
             </motion.div>
           </div>
         </div>
 
-        {/* PLANTATION GALLERY SECTION */}
-        <div className="relative py-16 px-6 max-w-7xl mx-auto mb-20 z-10 block">
+        {/* ── GALLERY ──────────────────────────────────────────────────────── */}
+        <div className="relative pt-4 pb-16 px-6 max-w-7xl mx-auto mb-20 z-10">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             className="text-center mb-16"
           >
-            <h2 className="text-4xl md:text-5xl font-bold text-[#1B4332] premium-title">Our Plantation Life</h2>
+            <motion.div
+              initial={{ opacity: 0, scale: 0.5 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 1.0, ease: "easeOut" }}
+              className="flex justify-center mb-4"
+            >
+              <img
+                src="/logo.png"
+                alt="Ishara Tea & Spices Logo"
+                className="w-36 h-36 md:w-44 md:h-44 object-contain drop-shadow-xl"
+              />
+            </motion.div>
+
+            <h2 className="text-4xl md:text-5xl font-bold text-[#1B4332] premium-title">
+              {t.galleryTitle}
+            </h2>
             <div className="w-16 h-1 bg-[#D4A373] mx-auto mt-6" />
           </motion.div>
 
@@ -228,22 +366,21 @@ function Home({ lang }) {
                 key={index}
                 initial={{ opacity: 0, scale: 0.95 }}
                 whileInView={{ opacity: 1, scale: 1 }}
-                whileHover={{ scale: 1.02 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
-                className="break-inside-avoid overflow-hidden shadow-xl relative group z-20 cursor-pointer"
+                viewport={{ once: true, margin: "0px 0px -100px 0px" }}
+                transition={{ duration: 0.5, delay: Math.min(index * 0.08, 0.4) }}
+                className="break-inside-avoid overflow-hidden shadow-xl relative group cursor-pointer"
               >
-                <img
+                <LazyImage
                   src={src}
-                  alt={`Plantation Moment ${index + 1}`}
-                  className="w-full object-cover transition-transform duration-700 group-hover:scale-105"
+                  alt={`Plantation ${index + 1}`}
+                  className="w-full"
                 />
                 <div className="absolute inset-0 bg-black/0 group-hover:bg-[#1B4332]/20 transition-all duration-300 pointer-events-none" />
-                <div className="absolute inset-0 border-2 border-transparent group-hover:border-[#D4A373]/60 rounded-[2rem] transition-all duration-300 pointer-events-none" />
               </motion.div>
             ))}
           </div>
         </div>
+
       </div>
     </div>
   );

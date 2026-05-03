@@ -16,9 +16,9 @@ function App() {
 
       <Routes>
         <Route path="/" element={<Home lang={lang} />} />
-        <Route path="/products" element={<Products />} />
-        <Route path="/product/:id" element={<ProductDetails />} />
-        <Route path="/contact" element={<Contact />} />
+        <Route path="/products" element={<Products lang={lang} />} />
+        <Route path="/product/:id" element={<ProductDetails lang={lang} />} />
+        <Route path="/contact" element={<Contact lang={lang} />} />
       </Routes>
       <Footer />
     </BrowserRouter>
