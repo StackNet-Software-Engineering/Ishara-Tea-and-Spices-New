@@ -60,10 +60,10 @@ const Footer = ({ lang = 'en' }) => {
             {t.tagline}
           </p>
           <div className="social-links">
-            <a href="#" className="social-icon"><span>f</span></a>
-            <a href="#" className="social-icon"><span>t</span></a>
-            <a href="#" className="social-icon"><span>in</span></a>
-            <a href="#" className="social-icon"><span>ig</span></a>
+            <Link to="/" className="social-icon"><span>f</span></Link>
+            <Link to="/" className="social-icon"><span>t</span></Link>
+            <Link to="/" className="social-icon"><span>in</span></Link>
+            <Link to="/" className="social-icon"><span>ig</span></Link>
           </div>
         </div>
 
@@ -71,7 +71,7 @@ const Footer = ({ lang = 'en' }) => {
           <h3>{t.discover}</h3>
           <ul>
             {t.discoverLinks.map((item, i) => (
-              <li key={i}><Link to="#">{item}</Link></li>
+              <li key={i}><Link to="/">{item}</Link></li>
             ))}
           </ul>
         </div>
@@ -80,7 +80,7 @@ const Footer = ({ lang = 'en' }) => {
           <h3>{t.explore}</h3>
           <ul>
             {t.exploreLinks.map((item, i) => (
-              <li key={i}><Link to="#">{item}</Link></li>
+              <li key={i}><Link to="/">{item}</Link></li>
             ))}
           </ul>
         </div>
@@ -99,9 +99,9 @@ const Footer = ({ lang = 'en' }) => {
       <div className="footer-bottom">
         <p>&copy; {new Date().getFullYear()} {t.brandName}. {t.rights}</p>
         <div className="footer-bottom-links">
-          <Link to="#">{t.privacy}</Link>
-          <Link to="#">{t.terms}</Link>
-          <Link to="#">{t.sitemap}</Link>
+          <Link to="/">{t.privacy}</Link>
+          <Link to="/">{t.terms}</Link>
+          <Link to="/">{t.sitemap}</Link>
         </div>
       </div>
     </footer>

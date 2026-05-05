@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { categories } from "../data/products";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 
 const HERO_BANNER = "https://res.cloudinary.com/dp1jwsapk/image/upload/w_1400,q_auto,f_auto/v1777731478/DSC08417_xq4tb3.jpg";
 
@@ -124,14 +124,6 @@ const productNames = {
     "op-item-12": { en: "Mother & Baby Elephant",    de: "Mutter und Baby Elefant",     ru: "Мама и детёныш слона" },
 };
 
-// Find which category a product belongs to
-const getCategoryId = (productId) => {
-    for (const category of categories) {
-        if (category.items.find(item => item.id === productId)) return category.id;
-    }
-    return null;
-};
-
 function ProductDetails({ lang = 'en' }) {
     const { id } = useParams();
     const navigate = useNavigate();
@@ -205,7 +197,6 @@ function ProductDetails({ lang = 'en' }) {
                         className="absolute inset-0 w-full h-full object-cover"
                         style={{ objectPosition: "center 40%" }}
                     />
-                    {/* Black overlay as requested */}
                     <div className="absolute inset-0" style={{ backgroundColor: 'rgba(0,0,0,0.62)' }} />
                     <div className="absolute inset-0" style={{ background: 'linear-gradient(to bottom, rgba(11,31,21,0.15) 0%, transparent 40%, rgba(11,31,21,0.85) 100%)' }} />
 
@@ -329,7 +320,6 @@ function ProductDetails({ lang = 'en' }) {
                         transition={{ duration: 0.6 }}
                         className="mt-24 mb-16 max-w-4xl mx-auto"
                     >
-                        {/* Section divider */}
                         <div className="flex items-center gap-6 mb-12">
                             <div className="flex-1 h-[1px]" style={{ backgroundColor: 'rgba(27,67,50,0.15)' }} />
                             <span className="uppercase tracking-[0.25em] font-bold text-xs" style={{ color: '#b8860b' }}>
