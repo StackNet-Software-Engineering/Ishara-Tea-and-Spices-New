@@ -20,7 +20,8 @@ function App() {
         <Route path="/product/:id" element={<ProductDetails lang={lang} />} />
         <Route path="/contact" element={<Contact lang={lang} />} />
       </Routes>
-      <Footer />
+
+      <Footer lang={lang} />
     </BrowserRouter>
   );
 }

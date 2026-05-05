@@ -17,7 +17,8 @@ const content = {
         perPack: "per pack",
         desc1: "Experience the finest selection of hand-picked ingredients sourced directly from the lush, rich soils of Sri Lanka. Our",
         desc2: "is carefully cultivated and processed using traditional methods to preserve its natural aroma, authentic flavor profile, and inherent wellness properties.",
-        desc3: "Every package guarantees uncompromised premium quality, bringing you the true essence of Ceylon heritage. Perfect for elevating your daily rituals, whether you are enjoying a calming warm beverage or enhancing a culinary masterpiece."
+        desc3: "Every package guarantees uncompromised premium quality, bringing you the true essence of Ceylon heritage. Perfect for elevating your daily rituals, whether you are enjoying a calming warm beverage or enhancing a culinary masterpiece.",
+        authenticDesc: "100% Authentic Sri Lankan"
     },
     de: {
         notFound: "Produkt nicht gefunden",
@@ -30,7 +31,8 @@ const content = {
         perPack: "pro Packung",
         desc1: "Erleben Sie die feinste Auswahl handverlesener Zutaten, die direkt von den üppigen, reichen Böden Sri Lankas stammen. Unser",
         desc2: "wird sorgfältig angebaut und nach traditionellen Methoden verarbeitet, um sein natürliches Aroma und seinen authentischen Geschmack zu bewahren.",
-        desc3: "Jede Packung garantiert kompromisslose Premiumqualität und bringt Ihnen die wahre Essenz des Ceylon-Erbes. Perfekt für Ihre täglichen Rituale."
+        desc3: "Jede Packung garantiert kompromisslose Premiumqualität und bringt Ihnen die wahre Essenz des Ceylon-Erbes. Perfekt für Ihre täglichen Rituale.",
+        authenticDesc: "100% Authentisch Sri Lankisch"
     },
     ru: {
         notFound: "Товар не найден",
@@ -43,7 +45,8 @@ const content = {
         perPack: "за упаковку",
         desc1: "Оцените лучший выбор собранных вручную ингредиентов, полученных прямо с пышных и богатых почв Шри-Ланки. Наш",
         desc2: "тщательно выращивается и обрабатывается традиционными методами для сохранения природного аромата и аутентичного вкуса.",
-        desc3: "Каждая упаковка гарантирует бескомпромиссное качество премиум-класса, донося до вас истинную суть цейлонского наследия."
+        desc3: "Каждая упаковка гарантирует бескомпромиссное качество премиум-класса, донося до вас истинную суть цейлонского наследия.",
+        authenticDesc: "100% Аутентичный Шри-Ланкийский"
     }
 };
 
@@ -109,17 +112,16 @@ const productNames = {
     "h-item-3": { en: "Cinnamon Oil", de: "Zimtöl", ru: "Масло корицы" },
     "op-item-1": { en: "Elephant", de: "Elefant", ru: "Слон" },
     "op-item-2": { en: "Elephant Trio", de: "Elefanten Trio", ru: "Трио слонов" },
-    "op-item-3": { en: "Item 3", de: "Artikel 3", ru: "Товар 3" },
-    "op-item-4": { en: "Rabbit", de: "Hase", ru: "Кролик" },
-    "op-item-5": { en: "Monkey", de: "Affe", ru: "Обезьяна" },
-    "op-item-6": { en: "Monkey Face", de: "Affengesicht", ru: "Мордочка обезьяны" },
-    "op-item-7": { en: "Mother Monkey", de: "Mutter Affe", ru: "Мама обезьяна" },
-    "op-item-9":  { en: "Coconut Shell Wise Man",    de: "Kokosnuss Weiser Mann",       ru: "Мудрец из кокоса" },
-    "op-item-10": { en: "Elephant & Monkey Carving", de: "Elefant & Affe Schnitzerei",  ru: "Слон и обезьяна" },
-    "op-item-11": { en: "Royal Tusker Elephant",     de: "Königlicher Stoßzahn-Elefant",ru: "Королевский слон" },
-    "op-item-12": { en: "Coconut Shell Old Man",     de: "Kokosnuss Alter Mann",        ru: "Старик из кокоса" },
-    "op-item-13": { en: "Coconut Shell Turtle",      de: "Kokosnuss Schildkröte",       ru: "Черепаха из кокоса" },
-    "op-item-14": { en: "Mother & Baby Elephant",    de: "Mutter und Baby Elefant",     ru: "Мама и детёныш слона" },
+    "op-item-3": { en: "Rabbit", de: "Hase", ru: "Кролик" },
+    "op-item-4": { en: "Monkey", de: "Affe", ru: "Обезьяна" },
+    "op-item-5": { en: "Monkey Face", de: "Affengesicht", ru: "Мордочка обезьяны" },
+    "op-item-6": { en: "Mother Monkey", de: "Mutter Affe", ru: "Мама обезьяна" },
+    "op-item-7":  { en: "Coconut Shell Wise Man",    de: "Kokosnuss Weiser Mann",       ru: "Мудрец из кокоса" },
+    "op-item-8": { en: "Elephant & Monkey Carving", de: "Elefant & Affe Schnitzerei",  ru: "Слон и обезьяна" },
+    "op-item-9": { en: "Royal Tusker Elephant",     de: "Königlicher Stoßzahn-Elefant",ru: "Королевский слон" },
+    "op-item-10": { en: "Coconut Shell Old Man",     de: "Kokosnuss Alter Mann",        ru: "Старик из кокоса" },
+    "op-item-11": { en: "Coconut Shell Turtle",      de: "Kokosnuss Schildkröte",       ru: "Черепаха из кокоса" },
+    "op-item-12": { en: "Mother & Baby Elephant",    de: "Mutter und Baby Elefant",     ru: "Мама и детёныш слона" },
 };
 
 // Find which category a product belongs to
@@ -289,7 +291,7 @@ function ProductDetails({ lang = 'en' }) {
                             <div className="w-12 h-[2px] mb-6" style={{ backgroundColor: '#D4A373' }} />
 
                             <p className="text-base md:text-lg mb-8 leading-relaxed" style={{ color: '#4a6558' }}>
-                                {product.desc}
+                                {t.authenticDesc}
                             </p>
 
                             <div className="text-3xl md:text-4xl font-bold mb-8 flex items-center gap-3" style={{ color: '#1a3828' }}>

@@ -111,17 +111,16 @@ const productNames = {
   // Other
   "op-item-1": { en: "Elephant", de: "Elefant", ru: "Слон" },
   "op-item-2": { en: "Elephant Trio", de: "Elefanten Trio", ru: "Трио слонов" },
-  "op-item-3": { en: "Item 3", de: "Artikel 3", ru: "Товар 3" },
-  "op-item-4": { en: "Rabbit", de: "Hase", ru: "Кролик" },
-  "op-item-5": { en: "Monkey", de: "Affe", ru: "Обезьяна" },
-  "op-item-6": { en: "Monkey Face", de: "Affengesicht", ru: "Мордочка обезьяны" },
-  "op-item-7": { en: "Mother Monkey", de: "Mutter Affe", ru: "Мама обезьяна" },
-  "op-item-9":  { en: "Coconut Shell Wise Man",    de: "Kokosnuss Weiser Mann",       ru: "Мудрец из кокоса" },
-  "op-item-10": { en: "Elephant & Monkey Carving", de: "Elefant & Affe Schnitzerei",  ru: "Слон и обезьяна" },
-  "op-item-11": { en: "Royal Tusker Elephant",     de: "Königlicher Stoßzahn-Elefant",ru: "Королевский слон" },
-  "op-item-12": { en: "Coconut Shell Old Man",     de: "Kokosnuss Alter Mann",        ru: "Старик из кокоса" },
-  "op-item-13": { en: "Coconut Shell Turtle",      de: "Kokosnuss Schildkröte",       ru: "Черепаха из кокоса" },
-  "op-item-14": { en: "Mother & Baby Elephant",    de: "Mutter und Baby Elefant",     ru: "Мама и детёныш слона" },
+  "op-item-3": { en: "Rabbit", de: "Hase", ru: "Кролик" },
+  "op-item-4": { en: "Monkey", de: "Affe", ru: "Обезьяна" },
+  "op-item-5": { en: "Monkey Face", de: "Affengesicht", ru: "Мордочка обезьяны" },
+  "op-item-6": { en: "Mother Monkey", de: "Mutter Affe", ru: "Мама обезьяна" },
+  "op-item-7":  { en: "Coconut Shell Wise Man",    de: "Kokosnuss Weiser Mann",       ru: "Мудрец из кокоса" },
+  "op-item-8": { en: "Elephant & Monkey Carving", de: "Elefant & Affe Schnitzerei",  ru: "Слон и обезьяна" },
+  "op-item-9": { en: "Royal Tusker Elephant",     de: "Königlicher Stoßzahn-Elefant",ru: "Королевский слон" },
+  "op-item-10": { en: "Coconut Shell Old Man",     de: "Kokosnuss Alter Mann",        ru: "Старик из кокоса" },
+  "op-item-11": { en: "Coconut Shell Turtle",      de: "Kokosnuss Schildkröte",       ru: "Черепаха из кокоса" },
+  "op-item-12": { en: "Mother & Baby Elephant",    de: "Mutter und Baby Elefant",     ru: "Мама и детёныш слона" },
 };
 
 function Products({ lang = 'en' }) {

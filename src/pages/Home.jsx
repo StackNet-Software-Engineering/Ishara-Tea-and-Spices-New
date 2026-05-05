@@ -1,14 +1,12 @@
 import React, { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
-// ─── Cloudinary optimizer ───────────────────────────────────────────────────
 const cdn = (url, opts = "w_1200,q_auto,f_auto") => {
   if (!url || !url.includes("res.cloudinary.com")) return url;
   return url.replace("/upload/", `/upload/${opts}/`);
 };
 const cdnThumb = (url) => cdn(url, "w_600,q_auto,f_auto");
 
-// ─── Full trilingual content ─────────────────────────────────────────────────
 const content = {
   en: {
     brandName: "Ishara Tea & Spices",
@@ -18,12 +16,12 @@ const content = {
     heritage: "For generations, Sri Lanka has been known as the home of the world's finest tea. At Ishara Tea & Spices Center, we proudly continue this tradition by offering premium products with warm Sri Lankan hospitality.",
     historyTitle: "The History of Sri Lanka Ceylon Tea",
     historyDesc: `Sri Lanka, formerly known as Ceylon, has a rich history of tea cultivation dating back to 1867 when James Taylor planted the first tea seedlings in the central highlands.\n\nCeylon Tea quickly became famous worldwide for its unique flavor, aroma, and high quality.\n\nOver generations, the tea industry has grown into a symbol of Sri Lankan culture and a major export product, offering varieties like Black, Green, White, and specialty blended teas.\n\nIshara Tea & Spices Center continues this proud heritage by delivering authentic Ceylon tea to visitors and tea lovers alike.`,
-    galleryTitle: "Our Plantation Life",
+    galleryTitle: "Ishara Tea & Spices",
     features: [
-      { title: "100% Ceylon Tea",    desc: "Black, Green, White & Broken Tea selections" },
-      { title: "Herbal Collection",  desc: "Natural wellness teas for health and relaxation" },
-      { title: "Premium Spices",     desc: "Ceylon Cinnamon, Pepper, Cardamom, & more" },
-      { title: "Tourist Trusted",    desc: "Fixed prices • English speaking • Gift packs" },
+      { title: "100% Ceylon Tea",   desc: "Black, Green, White & Broken Tea selections" },
+      { title: "Herbal Collection", desc: "Natural wellness teas for health and relaxation" },
+      { title: "Premium Spices",    desc: "Ceylon Cinnamon, Pepper, Cardamom, & more" },
+      { title: "Tourist Trusted",   desc: "Fixed prices • English speaking • Gift packs" },
     ],
   },
   de: {
@@ -33,13 +31,13 @@ const content = {
     exploreBtn: "Unser Erbe entdecken",
     heritage: "Seit Generationen ist Sri Lanka als Heimat des weltbesten Tees bekannt. Im Ishara Tee & Gewürzezentrum setzen wir diese Tradition mit Stolz fort und bieten Premiumprodukte mit herzlicher sri-lankischer Gastfreundschaft.",
     historyTitle: "Die Geschichte des Ceylon-Tees in Sri Lanka",
-    historyDesc: `Sri Lanka, früher als Ceylon bekannt, hat eine lange Geschichte des Teeanbaus, die 1867 begann, als James Taylor die ersten Teepflanzen in den zentralen Hochländern pflanzte.\n\nCeylon-Tee wurde schnell weltweit für seinen einzigartigen Geschmack, sein Aroma und seine hohe Qualität berühmt.\n\nÜber Generationen hinweg ist die Teeindustrie zu einem Symbol der sri-lankischen Kultur und einem wichtigen Exportprodukt geworden, das Sorten wie Schwarz-, Grün-, Weiß- und Spezialmischungstees umfasst.\n\nIshara Tee & Gewürze setzt dieses stolze Erbe fort und liefert authentischen Ceylon-Tee an Besucher und Teeliebhaber gleichermaßen.`,
-    galleryTitle: "Unser Plantagen-Leben",
+    historyDesc: `Sri Lanka, früher als Ceylon bekannt, hat eine lange Geschichte des Teeanbaus, die 1867 begann, als James Taylor die ersten Teepflanzen in den zentralen Hochländern pflanzte.\n\nCeylon-Tee wurde schnell weltweit für seinen einzigartigen Geschmack, sein Aroma und seine hohe Qualität berühmt.\n\nÜber Generationen hinweg ist die Teeindustrie zu einem Symbol der sri-lankischen Kultur und einem wichtigen Exportprodukt geworden.\n\nIshara Tee & Gewürze setzt dieses stolze Erbe fort und liefert authentischen Ceylon-Tee an Besucher und Teeliebhaber gleichermaßen.`,
+    galleryTitle: "Ishara Tee & Gewürze",
     features: [
-      { title: "100% Ceylon Tee",      desc: "Schwarz-, Grün-, Weiß- und gebrochener Tee" },
-      { title: "Kräuterkollektion",     desc: "Natürliche Wellnesstees für Gesundheit und Entspannung" },
-      { title: "Premium Gewürze",       desc: "Ceylon Zimt, Pfeffer, Kardamom und mehr" },
-      { title: "Touristenvertrauen",    desc: "Festpreise • Englischsprachig • Geschenkkörbe" },
+      { title: "100% Ceylon Tee",    desc: "Schwarz-, Grün-, Weiß- und gebrochener Tee" },
+      { title: "Kräuterkollektion",  desc: "Natürliche Wellnesstees für Gesundheit und Entspannung" },
+      { title: "Premium Gewürze",    desc: "Ceylon Zimt, Pfeffer, Kardamom und mehr" },
+      { title: "Touristenvertrauen", desc: "Festpreise • Englischsprachig • Geschenkkörbe" },
     ],
   },
   ru: {
@@ -49,18 +47,17 @@ const content = {
     exploreBtn: "Исследовать наследие",
     heritage: "На протяжении поколений Шри-Ланка известна как родина лучшего чая в мире. В центре Ishara мы с гордостью продолжаем эту традицию, предлагая премиальные продукты с тёплым шри-ланкийским гостеприимством.",
     historyTitle: "История цейлонского чая в Шри-Ланке",
-    historyDesc: `Шри-Ланка, ранее известная как Цейлон, имеет богатую историю выращивания чая, начавшуюся в 1867 году, когда Джеймс Тейлор посадил первые чайные кусты в центральном нагорье.\n\nЦейлонский чай быстро прославился во всём мире своим уникальным вкусом, ароматом и высоким качеством.\n\nНа протяжении поколений чайная промышленность стала символом шри-ланкийской культуры и важным экспортным продуктом, предлагая такие сорта, как чёрный, зелёный, белый и специальные купажированные чаи.\n\nIshara Tea & Spices продолжает эту гордую традицию, доставляя настоящий цейлонский чай посетителям и любителям чая.`,
-    galleryTitle: "Жизнь на плантации",
+    historyDesc: `Шри-Ланка, ранее известная как Цейлон, имеет богатую историю выращивания чая, начавшуюся в 1867 году, когда Джеймс Тейлор посадил первые чайные кусты в центральном нагорье.\n\nЦейлонский чай быстро прославился во всём мире своим уникальным вкусом, ароматом и высоким качеством.\n\nНа протяжении поколений чайная промышленность стала символом шри-ланкийской культуры и важным экспортным продуктом.\n\nIshara Tea & Spices продолжает эту гордую традицию, доставляя настоящий цейлонский чай посетителям и любителям чая.`,
+    galleryTitle: "Ishara Чай и Специи",
     features: [
-      { title: "100% Цейлонский чай",  desc: "Чёрный, зелёный, белый и ломаный чай" },
-      { title: "Травяная коллекция",   desc: "Натуральные велнес-чаи для здоровья и отдыха" },
-      { title: "Премиум специи",       desc: "Цейлонская корица, перец, кардамон и другое" },
-      { title: "Доверие туристов",     desc: "Фиксированные цены • Говорим по-английски • Подарочные наборы" },
+      { title: "100% Цейлонский чай", desc: "Чёрный, зелёный, белый и ломаный чай" },
+      { title: "Травяная коллекция",  desc: "Натуральные велнес-чаи для здоровья и отдыха" },
+      { title: "Премиум специи",      desc: "Цейлонская корица, перец, кардамон и другое" },
+      { title: "Доверие туристов",    desc: "Фиксированные цены • Говорим по-английски • Подарочные наборы" },
     ],
   },
 };
 
-// ─── Hero media ───────────────────────────────────────────────────────────────
 const heroMedia = [
   {
     type: "video",
@@ -79,7 +76,6 @@ const heroMedia = [
   },
 ];
 
-// ─── Gallery ──────────────────────────────────────────────────────────────────
 const galleryImages = [
   "https://res.cloudinary.com/dp1jwsapk/image/upload/v1777731478/DSC08410_qmgcah.jpg",
   "https://res.cloudinary.com/dp1jwsapk/image/upload/v1777731478/DSC08417_xq4tb3.jpg",
@@ -93,7 +89,6 @@ const galleryImages = [
   "https://res.cloudinary.com/dp1jwsapk/image/upload/v1777744881/DSC08052_igwyhb.jpg",
 ].map(cdnThumb);
 
-// ─── Lazy Image ───────────────────────────────────────────────────────────────
 function LazyImage({ src, alt, className }) {
   const ref = useRef(null);
   const [loaded, setLoaded] = useState(false);
@@ -125,7 +120,6 @@ function LazyImage({ src, alt, className }) {
   );
 }
 
-// ─── Main Component ───────────────────────────────────────────────────────────
 function Home({ lang = "en" }) {
   const [currentMedia, setCurrentMedia] = useState(0);
   const [currentFeature, setCurrentFeature] = useState(0);
@@ -134,7 +128,6 @@ function Home({ lang = "en" }) {
   const t = content[lang];
   const features = t.features;
 
-  // Hero slideshow
   useEffect(() => {
     const current = heroMedia[currentMedia];
     if (current.type === "image") {
@@ -143,13 +136,11 @@ function Home({ lang = "en" }) {
     }
   }, [currentMedia]);
 
-  // Feature slider
   useEffect(() => {
     const timer = setInterval(() => setCurrentFeature((p) => (p + 1) % features.length), 4000);
     return () => clearInterval(timer);
   }, [features.length]);
 
-  // Play video when active
   useEffect(() => {
     if (heroMedia[currentMedia].type === "video" && videoRef.current) {
       videoRef.current.currentTime = 0;
@@ -160,44 +151,33 @@ function Home({ lang = "en" }) {
   return (
     <div className="relative min-h-screen overflow-hidden bg-[#fdfaf5]">
 
-      {/* BACKGROUND — CSS-only keyframe blobs, GPU composited, zero JS overhead */}
+      {/* BACKGROUND blobs */}
       <div className="fixed inset-0 pointer-events-none z-0 overflow-hidden">
-        <div
-          className="absolute inset-0 opacity-5"
-          style={{
-            backgroundImage: `url("https://images.unsplash.com/photo-1596040033229-a9821ebd058d?w=400&q=40")`,
-            backgroundSize: "cover",
-            backgroundPosition: "center",
-            filter: "blur(2px)",
-          }}
-        />
-        <div className="absolute rounded-full" style={{
-          width:"60vw", height:"60vw",
-          background:"rgba(27,67,50,0.06)", filter:"blur(80px)",
-          willChange:"transform", animation:"homeBlob1 30s linear infinite",
+        <div className="absolute inset-0 opacity-5" style={{
+          backgroundImage: `url("https://images.unsplash.com/photo-1596040033229-a9821ebd058d?w=400&q=40")`,
+          backgroundSize: "cover", backgroundPosition: "center", filter: "blur(2px)",
         }} />
         <div className="absolute rounded-full" style={{
-          width:"50vw", height:"50vw",
-          background:"rgba(233,196,106,0.06)", filter:"blur(70px)",
-          willChange:"transform", animation:"homeBlob2 35s linear infinite",
+          width: "60vw", height: "60vw",
+          background: "rgba(27,67,50,0.06)", filter: "blur(80px)",
+          willChange: "transform", animation: "homeBlob1 30s linear infinite",
+        }} />
+        <div className="absolute rounded-full" style={{
+          width: "50vw", height: "50vw",
+          background: "rgba(233,196,106,0.06)", filter: "blur(70px)",
+          willChange: "transform", animation: "homeBlob2 35s linear infinite",
         }} />
         <style>{`
-          @keyframes homeBlob1 {
-            0%,100% { transform: translate(-10vw,-10vh); }
-            50%      { transform: translate(30vw,40vh); }
-          }
-          @keyframes homeBlob2 {
-            0%,100% { transform: translate(50vw,60vh); }
-            50%      { transform: translate(10vw,10vh); }
-          }
+          @keyframes homeBlob1 { 0%,100%{transform:translate(-10vw,-10vh)} 50%{transform:translate(30vw,40vh)} }
+          @keyframes homeBlob2 { 0%,100%{transform:translate(50vw,60vh)} 50%{transform:translate(10vw,10vh)} }
         `}</style>
       </div>
 
       <div className="relative z-10 w-full">
 
-        {/* ── HERO ─────────────────────────────────────────────────────────── */}
+        {/* ── HERO ── */}
         <div
-          className="relative w-full h-[95vh] flex flex-col items-center justify-center text-center px-6 overflow-hidden cursor-pointer"
+          className="relative w-full h-[100svh] flex flex-col items-center justify-center text-center px-4 sm:px-6 overflow-hidden cursor-pointer"
           onClick={() => setCurrentMedia((p) => (p + 1) % heroMedia.length)}
         >
           <AnimatePresence>
@@ -208,14 +188,9 @@ function Home({ lang = "en" }) {
                   <motion.video
                     key={`hero-video-${media.src}`}
                     ref={index === currentMedia ? videoRef : null}
-                    muted
-                    playsInline
-                    preload="metadata"
-                    poster={media.poster}
+                    muted playsInline preload="metadata" poster={media.poster}
                     onEnded={() => setCurrentMedia((p) => (p + 1) % heroMedia.length)}
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    exit={{ opacity: 0 }}
+                    initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}
                     transition={{ duration: 1 }}
                     className="absolute inset-0 w-full h-full object-cover z-0"
                   >
@@ -226,8 +201,7 @@ function Home({ lang = "en" }) {
               return (
                 <motion.img
                   key={`hero-img-${index}`}
-                  src={media.src}
-                  alt={`Hero ${index}`}
+                  src={media.src} alt={`Hero ${index}`}
                   initial={{ opacity: 0, scale: 1 }}
                   animate={{ opacity: 1, scale: 1.05 }}
                   exit={{ opacity: 0 }}
@@ -244,16 +218,20 @@ function Home({ lang = "en" }) {
             initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 1 }}
-            className="relative z-10 max-w-5xl p-10 md:p-20"
+            className="relative z-10 max-w-5xl w-full px-4 py-10 sm:px-8 sm:py-14 md:px-16 md:py-20"
           >
-            <h1 className="text-6xl md:text-8xl old-english font-normal mb-6 text-white drop-shadow-xl">
+            {/* Brand name — scales down gracefully on mobile */}
+            <h1 className="old-english font-normal text-white drop-shadow-xl mb-4 sm:mb-6"
+              style={{ fontSize: "clamp(2rem, 8vw, 5rem)", lineHeight: 1.15 }}>
               {t.brandName}
             </h1>
-            <h2 className="text-2xl md:text-4xl font-medium mb-8 text-[#D4A373] tracking-wide uppercase drop-shadow-md">
+            <h2 className="font-medium text-[#D4A373] tracking-wide uppercase drop-shadow-md mb-6 sm:mb-8"
+              style={{ fontSize: "clamp(0.9rem, 3vw, 2rem)" }}>
               {t.title}
             </h2>
-            <div className="w-24 h-1 bg-[#D4A373] mx-auto mb-8" />
-            <p className="max-w-2xl mx-auto text-lg md:text-xl leading-relaxed text-white/90 mb-10 font-medium drop-shadow-md">
+            <div className="w-16 sm:w-24 h-1 bg-[#D4A373] mx-auto mb-6 sm:mb-8" />
+            <p className="max-w-2xl mx-auto leading-relaxed text-white/90 mb-8 sm:mb-10 font-medium drop-shadow-md"
+              style={{ fontSize: "clamp(0.85rem, 2.2vw, 1.2rem)" }}>
               {t.desc}
             </p>
             <button
@@ -261,14 +239,14 @@ function Home({ lang = "en" }) {
                 e.stopPropagation();
                 window.scrollTo({ top: window.innerHeight, behavior: "smooth" });
               }}
-              className="bg-[#1B4332] text-white px-10 py-4 rounded-full font-bold hover:scale-105 transition shadow-xl uppercase tracking-widest text-sm"
+              className="bg-[#1B4332] text-white px-6 sm:px-10 py-3 sm:py-4 rounded-full font-bold hover:scale-105 transition shadow-xl uppercase tracking-widest text-xs sm:text-sm"
             >
               {t.exploreBtn}
             </button>
           </motion.div>
 
           {/* Slide dots */}
-          <div className="absolute bottom-6 flex gap-2 z-10">
+          <div className="absolute bottom-5 sm:bottom-6 flex gap-2 z-10">
             {heroMedia.map((_, i) => (
               <button
                 key={i}
@@ -279,8 +257,8 @@ function Home({ lang = "en" }) {
           </div>
         </div>
 
-        {/* ── FEATURES SLIDER ──────────────────────────────────────────────── */}
-        <div className="py-12 px-6 max-w-4xl mx-auto min-h-[250px] relative flex flex-col items-center justify-center overflow-hidden">
+        {/* ── FEATURES SLIDER ── */}
+        <div className="py-10 sm:py-12 px-4 sm:px-6 max-w-4xl mx-auto min-h-[220px] sm:min-h-[250px] relative flex flex-col items-center justify-center overflow-hidden">
           <AnimatePresence mode="wait">
             <motion.div
               key={`${lang}-${currentFeature}`}
@@ -288,17 +266,19 @@ function Home({ lang = "en" }) {
               animate={{ opacity: 1, x: 0 }}
               exit={{ opacity: 0, x: -100 }}
               transition={{ duration: 0.8, ease: "easeInOut" }}
-              className="absolute w-full px-8 flex flex-col items-center text-center"
+              className="absolute w-full px-4 sm:px-8 flex flex-col items-center text-center"
             >
-              <h3 className="text-4xl md:text-5xl font-bold text-[#1B4332] mb-6 premium-title">
+              <h3 className="font-bold text-[#1B4332] mb-4 sm:mb-6 premium-title"
+                style={{ fontSize: "clamp(1.5rem, 5vw, 3rem)" }}>
                 {features[currentFeature].title}
               </h3>
-              <p className="text-gray-700 text-xl md:text-2xl font-medium leading-relaxed">
+              <p className="text-gray-700 font-medium leading-relaxed"
+                style={{ fontSize: "clamp(0.95rem, 2.5vw, 1.5rem)" }}>
                 {features[currentFeature].desc}
               </p>
             </motion.div>
           </AnimatePresence>
-          <div className="absolute bottom-4 flex gap-3">
+          <div className="absolute bottom-3 sm:bottom-4 flex gap-3">
             {features.map((_, idx) => (
               <div
                 key={idx}
@@ -309,36 +289,39 @@ function Home({ lang = "en" }) {
           </div>
         </div>
 
-        {/* ── HISTORY SECTION ──────────────────────────────────────────────── */}
-        <div className="relative pt-2 pb-6 px-6 mb-2">
-          <div className="max-w-7xl mx-auto p-10 md:p-16 relative overflow-hidden backdrop-blur-sm">
+        {/* ── HISTORY SECTION ── */}
+        <div className="relative pt-2 pb-6 px-4 sm:px-6 mb-2">
+          <div className="max-w-7xl mx-auto p-6 sm:p-10 md:p-16 relative overflow-hidden backdrop-blur-sm">
             <div className="absolute top-0 right-0 w-64 h-64 bg-[#E9C46A]/5 rounded-full blur-[100px] -mr-32 -mt-32" />
             <motion.div
               initial={{ opacity: 0, x: -20 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
             >
-              <h2 className="text-4xl md:text-5xl text-[#1B4332] font-bold mb-10 premium-title">
+              <h2 className="text-[#1B4332] font-bold mb-6 sm:mb-10 premium-title"
+                style={{ fontSize: "clamp(1.5rem, 4vw, 3rem)" }}>
                 {t.historyTitle}
               </h2>
-              <div className="w-20 h-1 bg-[#D4A373] mb-10" />
-              <p className="text-gray-700 text-lg md:text-xl leading-relaxed whitespace-pre-line">
+              <div className="w-16 sm:w-20 h-1 bg-[#D4A373] mb-6 sm:mb-10" />
+              <p className="text-gray-700 leading-relaxed whitespace-pre-line"
+                style={{ fontSize: "clamp(0.9rem, 2vw, 1.2rem)" }}>
                 {t.historyDesc}
               </p>
-              <p className="mt-12 text-[#1B4332]/70 font-medium italic">
+              <p className="mt-8 sm:mt-12 text-[#1B4332]/70 font-medium italic"
+                style={{ fontSize: "clamp(0.85rem, 1.8vw, 1.1rem)" }}>
                 {t.heritage}
               </p>
             </motion.div>
           </div>
         </div>
 
-        {/* ── GALLERY ──────────────────────────────────────────────────────── */}
-        <div className="relative pt-4 pb-16 px-6 max-w-7xl mx-auto mb-20 z-10">
+        {/* ── GALLERY ── */}
+        <div className="relative pt-4 pb-12 sm:pb-16 px-4 sm:px-6 max-w-7xl mx-auto mb-10 sm:mb-20 z-10">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-center mb-16"
+            className="text-center mb-10 sm:mb-16"
           >
             <motion.div
               initial={{ opacity: 0, scale: 0.5 }}
@@ -350,31 +333,29 @@ function Home({ lang = "en" }) {
               <img
                 src="/logo.png"
                 alt="Ishara Tea & Spices Logo"
-                className="w-36 h-36 md:w-44 md:h-44 object-contain drop-shadow-xl"
+                className="w-24 h-24 sm:w-36 sm:h-36 md:w-44 md:h-44 object-contain drop-shadow-xl"
               />
             </motion.div>
 
-            <h2 className="text-4xl md:text-5xl font-bold text-[#1B4332] premium-title">
+            <h2 className="font-bold text-[#1B4332] premium-title"
+              style={{ fontSize: "clamp(1.5rem, 4vw, 3rem)" }}>
               {t.galleryTitle}
             </h2>
-            <div className="w-16 h-1 bg-[#D4A373] mx-auto mt-6" />
+            <div className="w-12 sm:w-16 h-1 bg-[#D4A373] mx-auto mt-4 sm:mt-6" />
           </motion.div>
 
-          <div className="columns-1 sm:columns-2 md:columns-3 gap-4 md:gap-6 space-y-4 md:space-y-6">
+          {/* Responsive gallery: 1 col mobile, 2 col tablet, 3 col desktop */}
+          <div className="columns-1 sm:columns-2 lg:columns-3 gap-3 sm:gap-4 md:gap-6 space-y-3 sm:space-y-4 md:space-y-6">
             {galleryImages.map((src, index) => (
               <motion.div
                 key={index}
                 initial={{ opacity: 0, scale: 0.95 }}
                 whileInView={{ opacity: 1, scale: 1 }}
-                viewport={{ once: true, margin: "0px 0px -100px 0px" }}
+                viewport={{ once: true, margin: "0px 0px -80px 0px" }}
                 transition={{ duration: 0.5, delay: Math.min(index * 0.08, 0.4) }}
-                className="break-inside-avoid overflow-hidden shadow-xl relative group cursor-pointer"
+                className="break-inside-avoid overflow-hidden shadow-lg sm:shadow-xl relative group cursor-pointer rounded-sm"
               >
-                <LazyImage
-                  src={src}
-                  alt={`Plantation ${index + 1}`}
-                  className="w-full"
-                />
+                <LazyImage src={src} alt={`Plantation ${index + 1}`} className="w-full" />
                 <div className="absolute inset-0 bg-black/0 group-hover:bg-[#1B4332]/20 transition-all duration-300 pointer-events-none" />
               </motion.div>
             ))}
