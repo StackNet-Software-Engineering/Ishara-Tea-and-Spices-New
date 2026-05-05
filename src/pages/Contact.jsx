@@ -150,11 +150,12 @@ function Contact({ lang = "en" }) {
 
           <div className="absolute inset-0 bg-black/60 z-0 pointer-events-none" />
 
+          {/* FIX: Added pt-16 sm:pt-20 so brand label + heading are not hidden behind navbar */}
           <motion.div
             initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 1 }}
-            className="relative z-10 max-w-4xl w-full px-4 sm:px-6"
+            className="relative z-10 max-w-4xl w-full px-4 sm:px-6 pt-16 sm:pt-20"
           >
             <motion.p
               initial={{ opacity: 0, letterSpacing: "0.1em" }}
