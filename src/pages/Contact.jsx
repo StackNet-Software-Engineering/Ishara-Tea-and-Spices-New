@@ -111,9 +111,9 @@ function Contact({ lang = "en" }) {
 
       <div className="relative z-10 w-full">
 
-        {/* ── HERO — identical structure & height to Home page ── */}
+        {/* ── HERO ── */}
         <div
-          className="relative w-full h-[100svh] flex flex-col items-center justify-end text-center px-4 sm:px-6 overflow-hidden cursor-pointer"
+          className="relative w-full h-[100svh] flex flex-col items-center justify-center text-center px-4 sm:px-6 overflow-hidden cursor-pointer"
           onClick={() => setCurrentMedia((p) => (p + 1) % heroMedia.length)}
         >
           <AnimatePresence>
@@ -150,16 +150,12 @@ function Contact({ lang = "en" }) {
 
           <div className="absolute inset-0 bg-black/60 z-0 pointer-events-none" />
 
-          {/*
-            KEY FIX: Use the exact same padding structure as Home hero content.
-            pt-16 sm:pt-20 pushes content below the fixed navbar so nothing is hidden.
-            The outer div is flex + justify-center, so total height still = 100svh.
-          */}
+          {/* FIX: Added pt-16 sm:pt-20 so brand label + heading are not hidden behind navbar */}
           <motion.div
             initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 1 }}
-            className="relative z-10 max-w-5xl w-full px-4 sm:px-8 md:px-16 pb-20 sm:pb-28 md:pb-36"
+            className="relative z-10 max-w-4xl w-full px-4 sm:px-6 pt-16 sm:pt-20"
           >
             <motion.p
               initial={{ opacity: 0, letterSpacing: "0.1em" }}
@@ -172,8 +168,8 @@ function Contact({ lang = "en" }) {
             </motion.p>
 
             <h1
-              className="premium-title font-bold text-white drop-shadow-xl mb-4 sm:mb-6"
-              style={{ fontSize: "clamp(2.2rem, 8vw, 5rem)", lineHeight: 1.15 }}
+              className="text-white premium-title font-bold drop-shadow-xl mb-4 sm:mb-6"
+              style={{ fontSize: "clamp(2.2rem, 8vw, 5rem)" }}
             >
               {t.visit}
             </h1>
