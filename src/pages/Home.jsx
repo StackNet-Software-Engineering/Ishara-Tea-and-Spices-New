@@ -342,7 +342,7 @@ function Home({ lang = "en" }) {
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              className="mt-12 sm:mt-16 w-full max-w-5xl mx-auto rounded-xl overflow-hidden relative group bg-[#1B4332]/10"
+              className="mt-12 sm:mt-16 w-full max-w-5xl mx-auto overflow-hidden relative group bg-[#1B4332]/10"
             >
               <video
                 className="w-full h-auto max-h-[70vh] object-cover"
