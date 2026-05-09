@@ -212,7 +212,7 @@ function Home({ lang = "en" }) {
             })}
           </AnimatePresence>
 
-          <div className="absolute inset-0 bg-black/60 z-0 pointer-events-none" />
+          <div className="absolute inset-0 bg-black/40 z-0 pointer-events-none" />
 
           {/* FIX: Added pt-16 sm:pt-20 to push content below the navbar */}
           <motion.div
