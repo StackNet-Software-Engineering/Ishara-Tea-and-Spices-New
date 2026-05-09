@@ -41,6 +41,8 @@ const content = {
 const HERO_BANNER = "https://res.cloudinary.com/dp1jwsapk/image/upload/w_1400,q_auto,f_auto/v1777731476/DSC08425_dfnxkg.jpg";
 
 const galleryImages = [
+  "https://res.cloudinary.com/dwf8ifbzs/image/upload/v1778322814/d74e872a-3c96-4858-b64f-91b1a5a97d98.png",
+  "https://res.cloudinary.com/dwf8ifbzs/image/upload/v1778322755/c3b68717-84c2-4592-ae11-922d3174d0c9.png",
   "https://res.cloudinary.com/dwf8ifbzs/image/upload/v1778322070/Screenshot_2026-05-09_155032_itasej.png",
   "https://res.cloudinary.com/dwf8ifbzs/image/upload/v1778322226/e4cbbb66-3730-4873-b4c9-5cdb5875142f.png",
   "https://res.cloudinary.com/dwf8ifbzs/image/upload/v1778322267/eabfeafc-8057-402a-aa5a-9d46e0b5f59b.png",
