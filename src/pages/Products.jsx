@@ -439,6 +439,7 @@ function Products({ lang = "en" }) {
                   alt={productNames[item.id]?.[lang] ?? item.name}
                   loading="lazy"
                   className="absolute inset-0 w-full h-full object-cover transition duration-700 group-hover:scale-110"
+                  style={{ filter: "brightness(1.35) contrast(1.1)" }}
                 />
 
                 {/* Gradient overlay */}
@@ -446,14 +447,14 @@ function Products({ lang = "en" }) {
                   className="absolute inset-0 transition duration-500"
                   style={{
                     background:
-                      "linear-gradient(to top, rgba(11,31,21,0.60) 0%, rgba(27,67,50,0.08) 50%, transparent 100%)",
+                      "linear-gradient(to top, rgba(11,31,21,0.20) 0%, rgba(27,67,50,0.02) 50%, transparent 100%)",
                   }}
                 />
 
                 {/* Hover tint */}
                 <div
                   className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500"
-                  style={{ background: "rgba(11,31,21,0.04)" }}
+                  style={{ background: "rgba(11,31,21,0.01)" }}
                 />
 
                 {/* Gold top accent */}
