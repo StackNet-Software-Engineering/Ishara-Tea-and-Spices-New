@@ -333,7 +333,7 @@ function ProductDetails({ lang = 'en' }) {
                                 {t.discover} <span style={{ color: '#b8860b' }}>{translatedProductName}</span>
                             </h3>
 
-                            <p className="text-base md:text-lg leading-[2rem] max-w-3xl mx-auto" style={{ color: '#4a6558' }}>
+                            <p className="text-base md:text-lg leading-[2rem] max-w-3xl mx-auto text-justify" style={{ color: '#4a6558' }}>
                                 {t.desc1} <strong style={{ color: '#1a3828' }}>{translatedProductName}</strong> {t.desc2}
                                 <br /><br />
                                 {t.desc3}
