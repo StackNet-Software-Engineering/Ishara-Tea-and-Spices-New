@@ -341,7 +341,7 @@ function Home({ lang = "en" }) {
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              className="mt-12 sm:mt-16 w-full max-w-5xl mx-auto overflow-hidden relative group bg-[#1B4332]/10"
+              className="mt-12 sm:mt-16 w-full overflow-hidden relative group bg-[#1B4332]/10"
             >
               <video
                 className="w-full h-auto max-h-[70vh] object-cover"
@@ -350,7 +350,7 @@ function Home({ lang = "en" }) {
                 muted
                 playsInline
                 src="https://res.cloudinary.com/dwf8ifbzs/video/upload/v1778326124/C3060_1_uaykcq.mp4"
-                style={{ filter: "brightness(1.1) contrast(1.05)" }}
+                style={{ filter: "brightness(1.35) contrast(1.1)" }}
               />
               <div className="absolute inset-0 bg-gradient-to-t from-[#1B4332]/30 to-transparent pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
             </motion.div>
