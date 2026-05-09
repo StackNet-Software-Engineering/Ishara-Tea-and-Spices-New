@@ -119,9 +119,13 @@ function Gallery({ lang = "en" }) {
             src={HERO_BANNER}
             alt="Ishara Tea & Spices Gallery"
             className="absolute inset-0 w-full h-full object-cover"
-            style={{ objectPosition: "center 55%", filter: "brightness(1.35) contrast(1.1)" }}
+            style={{ objectPosition: "center 55%" }}
           />
-          <div className="absolute inset-0" style={{ background: "linear-gradient(to bottom, rgba(11,31,21,0.10) 0%, transparent 40%, rgba(11,31,21,0.40) 100%)" }} />
+          <div className="absolute inset-0" style={{ backgroundColor: "rgba(0,0,0,0.62)" }} />
+          <div
+            className="absolute inset-0"
+            style={{ background: "linear-gradient(to bottom, rgba(11,31,21,0.15) 0%, transparent 40%, rgba(11,31,21,0.85) 100%)" }}
+          />
 
           <div className="absolute inset-0 flex flex-col items-center justify-center text-center px-6 pb-10">
             <motion.p
