@@ -392,7 +392,7 @@ function Home({ lang = "en" }) {
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="w-full max-w-5xl mx-auto rounded-xl sm:rounded-2xl overflow-hidden shadow-2xl relative group bg-[#1B4332]/10 mb-12 sm:mb-16"
+            className="w-full max-w-5xl mx-auto overflow-hidden relative group bg-[#1B4332]/10 mb-12 sm:mb-16"
           >
             <video
               className="w-full h-auto max-h-[70vh] object-cover"
