@@ -162,7 +162,7 @@ function Gallery({ lang = "en" }) {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
-            className="columns-1 sm:columns-2 md:columns-3 lg:columns-4 gap-2 sm:gap-4 space-y-2 sm:space-y-4"
+            className="grid grid-cols-2 gap-2 sm:gap-4"
           >
             {galleryImages.map((image, index) => (
               <motion.div
@@ -171,14 +171,14 @@ function Gallery({ lang = "en" }) {
                 whileInView={{ opacity: 1 }}
                 viewport={{ once: true, margin: "50px" }}
                 transition={{ duration: 0.5, delay: Math.min(index * 0.05, 0.5) }}
-                className="relative group cursor-pointer overflow-hidden break-inside-avoid"
+                className="relative group cursor-pointer overflow-hidden aspect-[4/3]"
                 onClick={() => setSelectedImageIndex(index)}
               >
                 <img
                   src={cdnThumb(image)}
                   alt={`Ishara Tea & Spices ${index + 1}`}
                   loading="lazy"
-                  className="w-full h-auto block transition-transform duration-700 group-hover:scale-110"
+                  className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                   style={{ filter: "brightness(1.35) contrast(1.1)" }}
                 />
 
