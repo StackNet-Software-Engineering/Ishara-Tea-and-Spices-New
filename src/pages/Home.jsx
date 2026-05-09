@@ -327,7 +327,7 @@ function Home({ lang = "en" }) {
                 {t.historyTitle}
               </h2>
               <div className="w-16 sm:w-20 h-1 bg-[#D4A373] mb-6 sm:mb-10" />
-              <p className="text-gray-700 leading-relaxed whitespace-pre-line"
+              <p className="text-gray-700 leading-relaxed whitespace-pre-line text-justify"
                 style={{ fontSize: "clamp(0.9rem, 2vw, 1.2rem)" }}>
                 {t.historyDesc}
               </p>
