@@ -209,6 +209,7 @@ function Home({ lang = "en" }) {
                     initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}
                     transition={{ duration: 1 }}
                     className="absolute inset-0 w-full h-full object-cover z-0"
+                    style={{ filter: "brightness(1.35) contrast(1.1)" }}
                   >
                     <source src={media.src} type="video/mp4" />
                   </motion.video>
@@ -223,12 +224,18 @@ function Home({ lang = "en" }) {
                   exit={{ opacity: 0 }}
                   transition={{ opacity: { duration: 1 }, scale: { duration: 6, ease: "linear" } }}
                   className="absolute inset-0 w-full h-full object-cover z-0"
+                  style={{ filter: "brightness(1.35) contrast(1.1)" }}
                 />
               );
             })}
           </AnimatePresence>
 
-          <div className="absolute inset-0 bg-black/40 z-0 pointer-events-none" />
+          <div 
+            className="absolute inset-0 z-0 pointer-events-none" 
+            style={{
+              background: "linear-gradient(to top, rgba(11,31,21,0.35) 0%, rgba(27,67,50,0.15) 40%, rgba(0,0,0,0.05) 100%)"
+            }} 
+          />
 
           {/* FIX: Added pt-16 sm:pt-20 to push content below the navbar */}
           <motion.div
