@@ -42,7 +42,9 @@ const HERO_BANNER = "https://res.cloudinary.com/dp1jwsapk/image/upload/w_1400,q_
 
 const galleryImages = [
   "https://res.cloudinary.com/dwf8ifbzs/image/upload/v1778322814/d74e872a-3c96-4858-b64f-91b1a5a97d98.png",
+  "https://res.cloudinary.com/dwf8ifbzs/image/upload/v1778323390/606840dd-3658-4783-a63d-03c18e75b4d0.png",
   "https://res.cloudinary.com/dwf8ifbzs/image/upload/v1778322755/c3b68717-84c2-4592-ae11-922d3174d0c9.png",
+  "https://res.cloudinary.com/dwf8ifbzs/image/upload/v1778323834/caa37238-9f71-47b2-99e1-1faeada0c0a2.png",
   "https://res.cloudinary.com/dwf8ifbzs/image/upload/v1778322070/Screenshot_2026-05-09_155032_itasej.png",
   "https://res.cloudinary.com/dwf8ifbzs/image/upload/v1778322226/e4cbbb66-3730-4873-b4c9-5cdb5875142f.png",
   "https://res.cloudinary.com/dwf8ifbzs/image/upload/v1778322267/eabfeafc-8057-402a-aa5a-9d46e0b5f59b.png",
@@ -53,6 +55,7 @@ const galleryImages = [
   "https://res.cloudinary.com/dwf8ifbzs/image/upload/v1778322517/bd26cacd-b250-4986-8196-3892c4746546.png",
   "https://res.cloudinary.com/dwf8ifbzs/image/upload/v1778322646/285c0fc8-6394-4b14-bfff-2e28d40bf9ed.png",
   "https://res.cloudinary.com/dwf8ifbzs/image/upload/v1778323009/63e38538-99a3-40c7-b9f8-3cdbf29c05ea.png",
+  "https://res.cloudinary.com/dwf8ifbzs/image/upload/v1778323282/9057c7ba-dbd0-43a4-9592-114e8080b3bc.png"
 ];
 
 function Gallery({ lang = "en" }) {
@@ -157,37 +160,37 @@ function Gallery({ lang = "en" }) {
         </div>
 
         {/* ── GALLERY GRID ── */}
-        <div className="max-w-[1600px] mx-auto px-2 sm:px-4 lg:px-6 py-8 sm:py-12 lg:py-16">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16 lg:py-24">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
-            className="grid grid-cols-2 gap-2 sm:gap-4"
+            className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6"
           >
             {galleryImages.map((image, index) => (
               <motion.div
                 key={index}
-                initial={{ opacity: 0 }}
-                whileInView={{ opacity: 1 }}
-                viewport={{ once: true, margin: "50px" }}
-                transition={{ duration: 0.5, delay: Math.min(index * 0.05, 0.5) }}
-                className="relative group cursor-pointer overflow-hidden aspect-[4/3]"
+                initial={{ opacity: 0, scale: 0.95 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true, margin: "-100px" }}
+                transition={{ duration: 0.5, delay: index * 0.05 }}
+                className="relative overflow-hidden group cursor-pointer h-[300px] sm:h-[350px] rounded-lg shadow-lg"
                 onClick={() => setSelectedImageIndex(index)}
               >
                 <img
                   src={cdnThumb(image)}
                   alt={`Ishara Tea & Spices ${index + 1}`}
                   loading="lazy"
-                  className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                  className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                   style={{ filter: "brightness(1.35) contrast(1.1)" }}
                 />
 
                 {/* Overlay */}
-                <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-all duration-300 pointer-events-none" />
+                <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-all duration-300" />
 
                 {/* Icon */}
-                <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-300 pointer-events-none">
-                  <div className="w-14 h-14 bg-white/90 flex items-center justify-center">
+                <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-300">
+                  <div className="w-14 h-14 bg-white/90 rounded-full flex items-center justify-center">
                     <svg className="w-7 h-7 text-[#1B4332]" fill="currentColor" viewBox="0 0 20 20">
                       <path d="M10.894 2.553a.895.895 0 00-1.788 0l-.314 3.151a.895.895 0 01-.743.743l-3.151.315a.895.895 0 000 1.788l3.151.314a.895.895 0 01.743.743l.315 3.151a.895.895 0 001.788 0l.314-3.151a.895.895 0 01.743-.743l3.151-.315a.895.895 0 000-1.788l-3.151-.314a.895.895 0 01-.743-.743l-.315-3.151zm-2.854 5.175a1.5 1.5 0 11-3 0 1.5 1.5 0 013 0z" />
                     </svg>
@@ -195,7 +198,7 @@ function Gallery({ lang = "en" }) {
                 </div>
 
                 {/* Image number badge */}
-                <div className="absolute top-3 right-3 bg-black/50 text-white px-3 py-1 text-xs font-bold opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">
+                <div className="absolute top-3 right-3 bg-[#D4A373] text-white px-3 py-1 rounded-full text-xs font-bold opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                   {index + 1}/{galleryImages.length}
                 </div>
               </motion.div>
@@ -238,7 +241,7 @@ function Gallery({ lang = "en" }) {
               <img
                 src={cdnFull(galleryImages[selectedImageIndex])}
                 alt={`Gallery full view ${selectedImageIndex + 1}`}
-                className="w-full h-auto max-h-[80vh] object-contain"
+                className="w-full h-auto max-h-[80vh] object-contain rounded-lg"
               />
 
               {/* Navigation arrows */}
@@ -269,7 +272,7 @@ function Gallery({ lang = "en" }) {
               </button>
 
               {/* Image counter */}
-              <div className="absolute bottom-4 left-1/2 -translate-x-1/2 bg-black/60 text-white px-4 py-2 text-sm font-semibold">
+              <div className="absolute bottom-4 left-1/2 -translate-x-1/2 bg-black/60 text-white px-4 py-2 rounded-full text-sm font-semibold">
                 {selectedImageIndex + 1} / {galleryImages.length}
               </div>
 
@@ -279,7 +282,7 @@ function Gallery({ lang = "en" }) {
                   e.stopPropagation();
                   handleCopyLink();
                 }}
-                className="absolute bottom-4 right-4 bg-[#D4A373] hover:bg-[#D4A373]/90 text-[#1B4332] px-4 py-2 text-sm font-semibold transition-all duration-300 flex items-center gap-2"
+                className="absolute bottom-4 right-4 bg-[#D4A373] hover:bg-[#D4A373]/90 text-[#1B4332] px-4 py-2 rounded-full text-sm font-semibold transition-all duration-300 flex items-center gap-2"
                 title="Copy image link"
               >
                 <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
