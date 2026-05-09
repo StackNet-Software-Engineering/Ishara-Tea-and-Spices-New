@@ -259,17 +259,17 @@ function Contact({ lang = "en" }) {
               <div className="flex flex-col gap-4 sm:gap-6 mb-8 sm:mb-12 text-gray-800">
                 <p className="flex items-center gap-3 sm:gap-4"
                   style={{ fontSize: "clamp(0.9rem, 2vw, 1.1rem)" }}>
-                  <span className="text-2xl sm:text-3xl text-[#1B4332] flex-shrink-0">📍</span>
+                  <span className="text-2xl sm:text-3xl text-[#1B4332] flex-shrink-0"></span>
                   {t.address}
                 </p>
                 <p className="flex items-center gap-3 sm:gap-4"
                   style={{ fontSize: "clamp(0.9rem, 2vw, 1.1rem)" }}>
-                  <span className="text-2xl sm:text-3xl text-[#1B4332] flex-shrink-0">📞</span>
+                  <span className="text-2xl sm:text-3xl text-[#1B4332] flex-shrink-0"></span>
                   {t.phone}
                 </p>
                 <p className="flex items-center gap-3 sm:gap-4"
                   style={{ fontSize: "clamp(0.9rem, 2vw, 1.1rem)" }}>
-                  <span className="text-2xl sm:text-3xl text-[#1B4332] flex-shrink-0">📧</span>
+                  <span className="text-2xl sm:text-3xl text-[#1B4332] flex-shrink-0"></span>
                   <span className="break-all">{t.emailAddr}</span>
                 </p>
               </div>
