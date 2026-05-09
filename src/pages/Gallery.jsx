@@ -41,15 +41,15 @@ const content = {
 const HERO_BANNER = "https://res.cloudinary.com/dp1jwsapk/image/upload/w_1400,q_auto,f_auto/v1777731476/DSC08425_dfnxkg.jpg";
 
 const galleryImages = [
-  "https://res.cloudinary.com/dp1jwsapk/image/upload/v1777731478/DSC08410_qmgcah.jpg",
-  "https://res.cloudinary.com/dp1jwsapk/image/upload/v1777731478/DSC08417_xq4tb3.jpg",
-  "https://res.cloudinary.com/dp1jwsapk/image/upload/v1777731476/DSC08425_dfnxkg.jpg",
-  "https://res.cloudinary.com/dp1jwsapk/image/upload/v1777731476/DSC08422_xhs0th.jpg",
-  "https://res.cloudinary.com/dp1jwsapk/image/upload/v1777731475/DSC08419_x1x2gg.jpg",
-  "https://res.cloudinary.com/dp1jwsapk/image/upload/v1777750948/DSC08295_ige8wt.jpg",
-  "https://res.cloudinary.com/dp1jwsapk/image/upload/v1777750949/DSC08219_npsh1p.jpg",
-  "https://res.cloudinary.com/dp1jwsapk/image/upload/v1777750950/DSC08222_icbovq.jpg",
-  "https://res.cloudinary.com/dp1jwsapk/image/upload/v1777750950/DSC08227_vggqjo.jpg",
+  "https://res.cloudinary.com/dwf8ifbzs/image/upload/v1778322070/Screenshot_2026-05-09_155032_itasej.png",
+  "https://res.cloudinary.com/dwf8ifbzs/image/upload/v1778322226/e4cbbb66-3730-4873-b4c9-5cdb5875142f.png",
+  "https://res.cloudinary.com/dwf8ifbzs/image/upload/v1778322267/eabfeafc-8057-402a-aa5a-9d46e0b5f59b.png",
+  "https://res.cloudinary.com/dwf8ifbzs/image/upload/v1778322314/09d32858-dc44-42e7-89ee-6d4b49e930f4.png",
+  "https://res.cloudinary.com/dwf8ifbzs/image/upload/v1778322357/8b75a2b4-aab8-4b28-809a-f6e5b127e005.png",
+  "https://res.cloudinary.com/dwf8ifbzs/image/upload/v1778322428/fafe68df-6546-4340-804e-b172c663dd40.png",
+  "https://res.cloudinary.com/dwf8ifbzs/image/upload/v1778322470/ee74726c-1d27-43e2-813c-c6a97195d488.png",
+  "https://res.cloudinary.com/dwf8ifbzs/image/upload/v1778322517/bd26cacd-b250-4986-8196-3892c4746546.png",
+  "https://res.cloudinary.com/dwf8ifbzs/image/upload/v1778322646/285c0fc8-6394-4b14-bfff-2e28d40bf9ed.png",
   "https://res.cloudinary.com/dp1jwsapk/image/upload/v1777744881/DSC08052_igwyhb.jpg",
 ];
 
