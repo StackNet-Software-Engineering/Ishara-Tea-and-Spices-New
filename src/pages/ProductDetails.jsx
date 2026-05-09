@@ -209,10 +209,9 @@ function ProductDetails({ lang = 'en' }) {
                         src={HERO_BANNER}
                         alt="Ceylon Tea"
                         className="absolute inset-0 w-full h-full object-cover"
-                        style={{ objectPosition: "center 40%" }}
+                        style={{ objectPosition: "center 40%", filter: "brightness(1.35) contrast(1.1)" }}
                     />
-                    <div className="absolute inset-0" style={{ backgroundColor: 'rgba(0,0,0,0.62)' }} />
-                    <div className="absolute inset-0" style={{ background: 'linear-gradient(to bottom, rgba(11,31,21,0.15) 0%, transparent 40%, rgba(11,31,21,0.85) 100%)' }} />
+                    <div className="absolute inset-0" style={{ background: 'linear-gradient(to bottom, rgba(11,31,21,0.10) 0%, transparent 40%, rgba(11,31,21,0.40) 100%)' }} />
 
                     <div className="absolute inset-0 flex flex-col items-center justify-center text-center px-6 pb-8">
                         <motion.p
@@ -274,6 +273,7 @@ function ProductDetails({ lang = 'en' }) {
                                         animate={{ opacity: idx === currentImageIndex ? 1 : 0 }}
                                         transition={{ duration: 1 }}
                                         className="absolute inset-0 w-full h-full object-cover"
+                                        style={{ filter: "brightness(1.35) contrast(1.1)" }}
                                     />
                                 ))
                             ) : (
@@ -281,6 +281,7 @@ function ProductDetails({ lang = 'en' }) {
                                     src={product.img}
                                     alt={translatedProductName}
                                     className="absolute inset-0 w-full h-full object-cover"
+                                    style={{ filter: "brightness(1.35) contrast(1.1)" }}
                                 />
                             )}
                         </div>
