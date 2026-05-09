@@ -397,7 +397,7 @@ function Home({ lang = "en" }) {
                 transition={{ duration: 0.5, delay: Math.min(index * 0.08, 0.4) }}
                 className="break-inside-avoid overflow-hidden shadow-lg sm:shadow-xl relative group cursor-pointer rounded-sm"
               >
-                <LazyImage src={src} alt={`Plantation ${index + 1}`} className="w-full" />
+                <LazyImage src={src} alt={`Plantation ${index + 1}`} className="w-full" style={{ filter: "brightness(1.35) contrast(1.1)" }} />
                 <div className="absolute inset-0 bg-black/0 group-hover:bg-[#1B4332]/20 transition-all duration-300 pointer-events-none" />
               </motion.div>
             ))}

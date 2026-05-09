@@ -178,7 +178,7 @@ function Gallery({ lang = "en" }) {
                   alt={`Ishara Tea & Spices ${index + 1}`}
                   loading="lazy"
                   className="w-full h-auto block transition-transform duration-500 group-hover:scale-105"
-                  style={{ filter: "brightness(1.1) contrast(1.05)" }}
+                  style={{ filter: "brightness(1.35) contrast(1.1)" }}
                 />
 
                 {/* Overlay matching Home.jsx */}
@@ -234,6 +234,7 @@ function Gallery({ lang = "en" }) {
                 src={cdnFull(galleryImages[selectedImageIndex])}
                 alt={`Gallery full view ${selectedImageIndex + 1}`}
                 className="w-full h-auto max-h-[80vh] object-contain rounded-lg"
+                style={{ filter: "brightness(1.35) contrast(1.1)" }}
               />
 
               {/* Navigation arrows */}
