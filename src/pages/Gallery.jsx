@@ -161,47 +161,43 @@ function Gallery({ lang = "en" }) {
         </div>
 
         {/* ── GALLERY GRID ── */}
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16 lg:py-24">
+        <div className="relative pt-4 pb-12 sm:pb-16 px-4 sm:px-6 max-w-7xl mx-auto mb-10 sm:mb-20 z-10">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
-            className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6"
+            className="columns-1 sm:columns-2 lg:columns-3 gap-3 sm:gap-4 md:gap-6 space-y-3 sm:space-y-4 md:space-y-6"
           >
             {galleryImages.map((image, index) => (
               <motion.div
                 key={index}
                 initial={{ opacity: 0, scale: 0.95 }}
                 whileInView={{ opacity: 1, scale: 1 }}
-                viewport={{ once: true, margin: "-100px" }}
-                transition={{ duration: 0.5, delay: index * 0.05 }}
-                className="relative overflow-hidden group cursor-pointer h-[300px] sm:h-[350px] rounded-lg shadow-lg"
+                viewport={{ once: true, margin: "0px 0px -80px 0px" }}
+                transition={{ duration: 0.5, delay: Math.min(index * 0.08, 0.4) }}
+                className="break-inside-avoid overflow-hidden shadow-lg sm:shadow-xl relative group cursor-pointer rounded-sm"
                 onClick={() => setSelectedImageIndex(index)}
               >
                 <img
                   src={cdnThumb(image)}
                   alt={`Ishara Tea & Spices ${index + 1}`}
                   loading="lazy"
-                  className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-                  style={{ filter: "brightness(1.35) contrast(1.1)" }}
+                  className="w-full h-auto block transition-transform duration-500 group-hover:scale-105"
+                  style={{ filter: "brightness(1.1) contrast(1.05)" }}
                 />
 
-                {/* Overlay */}
-                <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-all duration-300" />
+                {/* Overlay matching Home.jsx */}
+                <div className="absolute inset-0 bg-black/0 group-hover:bg-[#1B4332]/20 transition-all duration-300 pointer-events-none" />
 
                 {/* Icon */}
-                <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-300">
-                  <div className="w-14 h-14 bg-white/90 rounded-full flex items-center justify-center">
-                    <svg className="w-7 h-7 text-[#1B4332]" fill="currentColor" viewBox="0 0 20 20">
+                <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-300 pointer-events-none">
+                  <div className="w-12 h-12 bg-white/90 rounded-full flex items-center justify-center shadow-md">
+                    <svg className="w-6 h-6 text-[#1B4332]" fill="currentColor" viewBox="0 0 20 20">
                       <path d="M10.894 2.553a.895.895 0 00-1.788 0l-.314 3.151a.895.895 0 01-.743.743l-3.151.315a.895.895 0 000 1.788l3.151.314a.895.895 0 01.743.743l.315 3.151a.895.895 0 001.788 0l.314-3.151a.895.895 0 01.743-.743l3.151-.315a.895.895 0 000-1.788l-3.151-.314a.895.895 0 01-.743-.743l-.315-3.151zm-2.854 5.175a1.5 1.5 0 11-3 0 1.5 1.5 0 013 0z" />
                     </svg>
                   </div>
                 </div>
 
-                {/* Image number badge */}
-                <div className="absolute top-3 right-3 bg-[#D4A373] text-white px-3 py-1 rounded-full text-xs font-bold opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                  {index + 1}/{galleryImages.length}
-                </div>
               </motion.div>
             ))}
           </motion.div>
