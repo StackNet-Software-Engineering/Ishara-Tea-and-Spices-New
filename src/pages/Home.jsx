@@ -350,7 +350,7 @@ function Home({ lang = "en" }) {
                 loop
                 muted
                 playsInline
-                src="https://res.cloudinary.com/dwf8ifbzs/video/upload/v1778324897/C3060_uwkrmy.mp4"
+                src="https://res.cloudinary.com/dwf8ifbzs/video/upload/v1778326124/C3060_1_uaykcq.mp4"
                 style={{ filter: "brightness(1.1) contrast(1.05)" }}
               />
               <div className="absolute inset-0 bg-gradient-to-t from-[#1B4332]/30 to-transparent pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
@@ -400,7 +400,7 @@ function Home({ lang = "en" }) {
               loop
               muted
               playsInline
-              src="https://res.cloudinary.com/dwf8ifbzs/video/upload/v1778326124/C3060_1_uaykcq.mp4"
+              src="https://res.cloudinary.com/dwf8ifbzs/video/upload/v1778324897/C3060_uwkrmy.mp4"
               style={{ filter: "brightness(1.1) contrast(1.05)" }}
             />
             <div className="absolute inset-0 bg-gradient-to-t from-[#1B4332]/30 to-transparent pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
