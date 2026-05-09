@@ -291,14 +291,14 @@ function ProductDetails({ lang = 'en' }) {
                             </div> */}
 
                             <div className="flex flex-col sm:flex-row gap-4">
-                                <button
+                                {/* <button
                                     className="px-8 py-4 font-bold text-sm tracking-widest uppercase flex-1 text-center shadow-lg transition-all duration-300 text-white"
                                     style={{ backgroundColor: '#1B4332' }}
                                     onMouseEnter={e => { e.currentTarget.style.backgroundColor = '#D4A373'; e.currentTarget.style.transform = 'scale(1.04)'; }}
                                     onMouseLeave={e => { e.currentTarget.style.backgroundColor = '#1B4332'; e.currentTarget.style.transform = 'scale(1)'; }}
                                 >
                                     {t.order}
-                                </button>
+                                </button> */}
                                 <button
                                     onClick={() => navigate('/products')}
                                     className="px-8 py-4 font-bold text-sm tracking-widest uppercase flex-1 text-center transition-all duration-300"
