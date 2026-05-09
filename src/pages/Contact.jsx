@@ -311,7 +311,7 @@ function Contact({ lang = "en" }) {
             </h2>
             <div className="w-16 sm:w-24 h-1 bg-[#D4A373] mx-auto mb-10 sm:mb-12" />
             
-            <div className="w-full h-[350px] sm:h-[450px] lg:h-[550px] rounded-2xl overflow-hidden shadow-2xl relative border-4 border-white/60 backdrop-blur-sm group">
+            <div className="w-full h-[350px] sm:h-[450px] lg:h-[550px] rounded-2xl overflow-hidden relative border-4 border-white/60 backdrop-blur-sm group">
               <div className="absolute inset-0 bg-[#D4A373]/10 pointer-events-none z-10 group-hover:bg-transparent transition-colors duration-500" />
               <iframe
                 title="Map showing Ishara Tea & Spice location in Sri Lanka"
