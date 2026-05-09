@@ -6,11 +6,14 @@ const content = {
   en: {
     brandName: "Ishara Tea & Spices",
     tagline: "The legendary symbol of quality. Experience the world's finest tea and spices from Sri Lanka.",
-    discover: "Discover",
-    explore: "Explore",
+    discover: "Quick Links",
     contact: "Contact Us",
-    discoverLinks: ["Story of Ceylon Tea", "From Dew to Brew", "Tea Diversity", "Perfect Cup of Tea", "Global Tea Fraternity"],
-    exploreLinks: ['Rich in "Theaflavins"', "Symbol of Quality", "Flirt with New Recipes", "Gallery & Media", "Where to Buy"],
+    discoverLinks: [
+      { label: "Home", path: "/" },
+      { label: "Products", path: "/products" },
+      { label: "Gallery", path: "/gallery" },
+      { label: "Contact", path: "/contact" }
+    ],
     address: "Sri Lanka",
     rights: "All Rights Reserved.",
     privacy: "Privacy Policy",
@@ -20,11 +23,14 @@ const content = {
   de: {
     brandName: "Ishara Tee & Gewürze",
     tagline: "Das legendäre Symbol der Qualität. Erleben Sie den feinsten Tee und die besten Gewürze aus Sri Lanka.",
-    discover: "Entdecken",
-    explore: "Erkunden",
-    contact: "Kontaktieren Sie uns",
-    discoverLinks: ["Geschichte des Ceylon-Tees", "Vom Tau zum Aufguss", "Teevielfalt", "Die perfekte Tasse Tee", "Globale Teegemeinschaft"],
-    exploreLinks: ['Reich an „Theaflavinen"', "Symbol der Qualität", "Neue Rezepte ausprobieren", "Galerie & Medien", "Wo kaufen"],
+    discover: "Schnelllinks",
+    contact: "Kontakt",
+    discoverLinks: [
+      { label: "Startseite", path: "/" },
+      { label: "Produkte", path: "/products" },
+      { label: "Galerie", path: "/gallery" },
+      { label: "Kontakt", path: "/contact" }
+    ],
     address: "Sri Lanka",
     rights: "Alle Rechte vorbehalten.",
     privacy: "Datenschutzrichtlinie",
@@ -34,11 +40,14 @@ const content = {
   ru: {
     brandName: "Ishara Чай и Специи",
     tagline: "Легендарный символ качества. Откройте для себя лучший чай и специи из Шри-Ланки.",
-    discover: "Открыть",
-    explore: "Исследовать",
-    contact: "Свяжитесь с нами",
-    discoverLinks: ["История цейлонского чая", "От росы до чашки", "Разнообразие чаёв", "Идеальная чашка чая", "Мировое чайное братство"],
-    exploreLinks: ["Богат теафлавинами", "Символ качества", "Новые рецепты", "Галерея и медиа", "Где купить"],
+    discover: "Быстрые ссылки",
+    contact: "Контакты",
+    discoverLinks: [
+      { label: "Главная", path: "/" },
+      { label: "Продукты", path: "/products" },
+      { label: "Галерея", path: "/gallery" },
+      { label: "Контакты", path: "/contact" }
+    ],
     address: "Шри-Ланка",
     rights: "Все права защищены.",
     privacy: "Политика конфиденциальности",
@@ -48,11 +57,14 @@ const content = {
   zh: {
     brandName: "Ishara 茶叶与香料",
     tagline: "品质的传奇象征。体验斯里兰卡最好的茶和香料。",
-    discover: "发现",
-    explore: "探索",
+    discover: "快速链接",
     contact: "联系我们",
-    discoverLinks: ["锡兰茶的故事", "从露水到冲泡", "茶的多样性", "完美的一杯茶", "全球茶友会"],
-    exploreLinks: ["富含茶黄素", "品质的象征", "尝试新食谱", "画廊与媒体", "哪里购买"],
+    discoverLinks: [
+      { label: "首页", path: "/" },
+      { label: "产品", path: "/products" },
+      { label: "画廊", path: "/gallery" },
+      { label: "联系", path: "/contact" }
+    ],
     address: "斯里兰卡",
     rights: "版权所有。",
     privacy: "隐私政策",
@@ -85,16 +97,7 @@ const Footer = ({ lang = 'en' }) => {
           <h3>{t.discover}</h3>
           <ul>
             {t.discoverLinks.map((item, i) => (
-              <li key={i}><Link to="/">{item}</Link></li>
-            ))}
-          </ul>
-        </div>
-
-        <div className="footer-col">
-          <h3>{t.explore}</h3>
-          <ul>
-            {t.exploreLinks.map((item, i) => (
-              <li key={i}><Link to="/">{item}</Link></li>
+              <li key={i}><Link to={item.path}>{item.label}</Link></li>
             ))}
           </ul>
         </div>
