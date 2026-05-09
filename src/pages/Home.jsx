@@ -237,12 +237,12 @@ function Home({ lang = "en" }) {
             }}
           />
 
-          {/* FIX: Added pt-16 sm:pt-20 to push content below the navbar */}
+          {/* FIX: Added mt-16 sm:mt-20 to push the whole box below the navbar */}
           <motion.div
             initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 1 }}
-            className="relative z-10 max-w-5xl w-full px-4 pt-16 sm:pt-20 pb-10 sm:px-8 sm:pb-14 md:px-16 md:pb-20"
+            className="relative z-10 max-w-4xl w-full px-6 py-12 sm:px-12 sm:py-16 md:px-16 md:py-20 bg-black/40 backdrop-blur-sm rounded-3xl border border-white/10 mt-16 sm:mt-20 shadow-2xl"
           >
             {/* Brand name — scales down gracefully on mobile */}
             <h1 className="old-english font-normal text-white drop-shadow-xl mb-4 sm:mb-6"
