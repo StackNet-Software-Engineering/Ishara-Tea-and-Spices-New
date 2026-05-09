@@ -161,7 +161,7 @@ function Gallery({ lang = "en" }) {
         </div>
 
         {/* ── GALLERY GRID ── */}
-        <div className="relative pt-4 pb-12 sm:pb-16 px-4 sm:px-6 max-w-7xl mx-auto mb-10 sm:mb-20 z-10">
+        <div className="relative pt-4 pb-12 sm:pb-16 px-4 sm:px-6 mx-auto mb-10 sm:mb-20 z-10">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
