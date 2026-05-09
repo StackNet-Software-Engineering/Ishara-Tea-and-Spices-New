@@ -285,10 +285,10 @@ function ProductDetails({ lang = 'en' }) {
                                 {t.authenticDesc}
                             </p>
 
-                            <div className="text-3xl md:text-4xl font-bold mb-8 flex items-center gap-3" style={{ color: '#1a3828' }}>
+                            {/* <div className="text-3xl md:text-4xl font-bold mb-8 flex items-center gap-3" style={{ color: '#1a3828' }}>
                                 <span>{product.price}</span>
                                 <span className="text-xs font-normal uppercase tracking-widest mt-2" style={{ color: '#8a9e92' }}>{t.perPack}</span>
-                            </div>
+                            </div> */}
 
                             <div className="flex flex-col sm:flex-row gap-4">
                                 <button
