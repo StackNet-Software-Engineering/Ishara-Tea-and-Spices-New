@@ -30,15 +30,24 @@ const content = {
     country: "Шри-Ланка",
     email: "isharateashop@gmail.com",
   },
+  zh: {
+    brandName: "Ishara 茶叶与香料",
+    search: "搜索 ...",
+    close: "关闭",
+    menu: "菜单",
+    getInTouch: "联系我们",
+    country: "斯里兰卡",
+    email: "isharateashop@gmail.com",
+  },
 };
 
 const navLinks = [
-  { en: "Home",     de: "Startseite", ru: "Главная",  path: "/" },
-  { en: "Products", de: "Produkte",   ru: "Товары",   path: "/products" },
-  { en: "Contact",  de: "Kontakt",    ru: "Контакт",  path: "/contact" },
+  { en: "Home", de: "Startseite", ru: "Главная", zh: "首页", path: "/" },
+  { en: "Products", de: "Produkte", ru: "Товары", zh: "产品", path: "/products" },
+  { en: "Contact", de: "Kontakt", ru: "Контакт", zh: "联系", path: "/contact" },
 ];
 
-const languages = ["en", "de", "ru"];
+const languages = ["en", "de", "ru", "zh"];
 
 function Navbar({ lang, setLang }) {
   const [isOpen, setIsOpen] = useState(false);

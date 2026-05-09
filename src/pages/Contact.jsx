@@ -62,6 +62,20 @@ const content = {
     emailAddr: "isharateashop@gmail.com",
     findUs: "Найти нас",
   },
+  zh: {
+    brand: "Ishara 茶叶与香料",
+    visit: "欢迎访问",
+    getInTouch: "联系我们",
+    desc: "体验友好的服务、流利的英语交流和热情的环境，非常适合游客和茶叶爱好者。欢迎光临我们在美丽斯里兰卡的中心，或在下方给我们留言。",
+    name: "您的姓名",
+    email: "您的邮箱",
+    msg: "您的留言",
+    send: "发送留言",
+    address: "斯里兰卡",
+    phone: "+94 77 000 0000",
+    emailAddr: "isharateashop@gmail.com",
+    findUs: "找到我们",
+  },
 };
 
 function Contact({ lang = "en" }) {

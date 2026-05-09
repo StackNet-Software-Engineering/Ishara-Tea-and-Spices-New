@@ -45,6 +45,20 @@ const content = {
     terms: "Условия использования",
     sitemap: "Карта сайта",
   },
+  zh: {
+    brandName: "Ishara 茶叶与香料",
+    tagline: "品质的传奇象征。体验斯里兰卡最好的茶和香料。",
+    discover: "发现",
+    explore: "探索",
+    contact: "联系我们",
+    discoverLinks: ["锡兰茶的故事", "从露水到冲泡", "茶的多样性", "完美的一杯茶", "全球茶友会"],
+    exploreLinks: ["富含茶黄素", "品质的象征", "尝试新食谱", "画廊与媒体", "哪里购买"],
+    address: "斯里兰卡",
+    rights: "版权所有。",
+    privacy: "隐私政策",
+    terms: "服务条款",
+    sitemap: "网站地图",
+  },
 };
 
 const Footer = ({ lang = 'en' }) => {

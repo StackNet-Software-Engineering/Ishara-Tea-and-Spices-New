@@ -47,92 +47,104 @@ const content = {
     viewDetails: "Подробнее →",
     allTeas: "Все чаи",
   },
+  zh: {
+    subtitle: "探索我们的系列",
+    title: "锡兰茶、香料及草本产品",
+    desc: "正宗的斯里兰卡茶、优质香料和草本养生产品 — 直接来自当地种植园。",
+    showing: "显示",
+    of: "的",
+    products: "个产品",
+    prev: "← 上一页",
+    next: "下一页 →",
+    viewDetails: "查看详情 →",
+    allTeas: "所有茶",
+  },
 };
 
 const categoryTitles = {
-  tea:    { en: "Ceylon Tea",          de: "Ceylon Tee",              ru: "Цейлонский чай" },
-  spices: { en: "Sri Lankan Spices",   de: "Sri-lankische Gewürze",   ru: "Шри-ланкийские специи" },
-  herbal: { en: "Herbal",              de: "Kräuter",                 ru: "Травяные" },
-  other:  { en: "Other Products",      de: "Andere Produkte",         ru: "Другие товары" },
+  tea:    { en: "Ceylon Tea",          de: "Ceylon Tee",              ru: "Цейлонский чай", zh: "锡兰茶" },
+  spices: { en: "Sri Lankan Spices",   de: "Sri-lankische Gewürze",   ru: "Шри-ланкийские специи", zh: "斯里兰卡香料" },
+  herbal: { en: "Herbal",              de: "Kräuter",                 ru: "Травяные", zh: "草本" },
+  other:  { en: "Other Products",      de: "Andere Produkte",         ru: "Другие товары", zh: "其他产品" },
 };
 
 // Sub-category labels translated
 const subCategoryTitles = {
-  "flavoured-black":  { en: "Flavoured Black",    de: "Schwarztee Aromen",   ru: "Чёрный ароматизированный" },
-  "flavoured-green":  { en: "Flavoured Green",    de: "Grüntee Aromen",      ru: "Зелёный ароматизированный" },
-  "pure-green":       { en: "Pure Green",         de: "Reiner Grüntee",      ru: "Чистый зелёный" },
-  "graded-black":     { en: "Graded Black",       de: "Klassifizierter Schwarztee", ru: "Сортовой чёрный" },
-  "specialty-rare":   { en: "Specialty & Rare",   de: "Spezialitäten",       ru: "Редкие & Специальные" },
-  "herbal-wellness":  { en: "Herbal & Wellness",  de: "Kräuter & Wellness",  ru: "Травяные & Велнес" },
+  "flavoured-black":  { en: "Flavoured Black",    de: "Schwarztee Aromen",   ru: "Чёрный ароматизированный", zh: "调味红茶" },
+  "flavoured-green":  { en: "Flavoured Green",    de: "Grüntee Aromen",      ru: "Зелёный ароматизированный", zh: "调味绿茶" },
+  "pure-green":       { en: "Pure Green",         de: "Reiner Grüntee",      ru: "Чистый зелёный", zh: "纯绿茶" },
+  "graded-black":     { en: "Graded Black",       de: "Klassifizierter Schwarztee", ru: "Сортовой чёрный", zh: "分级红茶" },
+  "specialty-rare":   { en: "Specialty & Rare",   de: "Spezialitäten",       ru: "Редкие & Специальные", zh: "特色与稀有" },
+  "herbal-wellness":  { en: "Herbal & Wellness",  de: "Kräuter & Wellness",  ru: "Травяные & Велнес", zh: "草本与养生" },
 };
 
 const productNames = {
-  "ceylon-tea-1":  { en: "Black Tea Mix Fruit",       de: "Schwarztee Gemischte Früchte",       ru: "Чёрный чай Миксфрукты" },
-  "ceylon-tea-2":  { en: "Lotus Flavour Tea",          de: "Lotus Geschmack Tee",                ru: "Чай со вкусом лотоса" },
-  "ceylon-tea-3":  { en: "Nuwaraeliya High Grown Tea", de: "Nuwaraeliya Hochland-Tee",           ru: "Чай Нувараэлия Горный" },
-  "ceylon-tea-4":  { en: "Vanilla Tea",                de: "Vanille Tee",                        ru: "Ванильный чай" },
-  "ceylon-tea-5":  { en: "Earl Grey",                  de: "Earl Grey",                          ru: "Эрл Грей" },
-  "ceylon-tea-6":  { en: "Lemon Grass",                de: "Zitronengras",                       ru: "Лемонграсс" },
-  "ceylon-tea-7":  { en: "Green Tea Soursop",          de: "Grüner Tee Soursop",                 ru: "Зелёный чай Саусеп" },
-  "ceylon-tea-8":  { en: "Mango Flavour",              de: "Mango Geschmack",                    ru: "Манговый вкус" },
-  "ceylon-tea-9":  { en: "Black Tea Pineapple",        de: "Schwarztee Ananas",                  ru: "Чёрный чай Ананас" },
-  "ceylon-tea-10": { en: "Black Tea Lotus",            de: "Schwarztee Lotus",                   ru: "Чёрный чай Лотос" },
-  "ceylon-tea-11": { en: "Vanilla Flavour",            de: "Vanille Geschmack",                  ru: "Ванильный вкус" },
-  "ceylon-tea-12": { en: "Banana Flavour",             de: "Bananen Geschmack",                  ru: "Банановый вкус" },
-  "ceylon-tea-13": { en: "Black Tea Rose",             de: "Schwarztee Rose",                    ru: "Чёрный чай Роза" },
-  "ceylon-tea-14": { en: "Black Tea Jasmine",          de: "Schwarztee Jasmin",                  ru: "Чёрный чай Жасмин" },
-  "ceylon-tea-15": { en: "Chai Masala",                de: "Chai Masala",                        ru: "Чай Масала" },
-  "ceylon-tea-16": { en: "Passion Fruit",              de: "Passionsfrucht",                     ru: "Маракуйя" },
-  "ceylon-tea-17": { en: "Green Tea Mix Fruit",        de: "Grüner Tee Gemischte Früchte",       ru: "Зелёный чай Миксфрукты" },
-  "ceylon-tea-18": { en: "Black Tea Mint",             de: "Schwarztee Minze",                   ru: "Чёрный чай Мята" },
-  "ceylon-tea-19": { en: "Ginger Flavour",             de: "Ingwer Geschmack",                   ru: "Имбирный вкус" },
-  "ceylon-tea-20": { en: "Black Tea 1001 Night",       de: "Schwarztee 1001 Nacht",              ru: "Чёрный чай 1001 ночь" },
-  "ceylon-tea-21": { en: "Green Tea",                  de: "Grüner Tee",                         ru: "Зелёный чай" },
-  "ceylon-tea-22": { en: "PEKOE-1",                    de: "PEKOE-1",                            ru: "ПЕКО-1" },
-  "ceylon-tea-23": { en: "Black Tea FFEX-SP1",         de: "Schwarztee FFEX-SP1",                ru: "Чёрный чай FFEX-SP1" },
-  "ceylon-tea-24": { en: "Black Tea BOP",              de: "Schwarztee BOP",                     ru: "Чёрный чай BOP" },
-  "ceylon-tea-25": { en: "Black Tea Pekoe",            de: "Schwarztee Pekoe",                   ru: "Чёрный чай Пеко" },
-  "ceylon-tea-26": { en: "Black Tea OP",               de: "Schwarztee OP",                      ru: "Чёрный чай OP" },
-  "ceylon-tea-27": { en: "Golden Tips Tea",            de: "Golden Tips Tee",                    ru: "Чай Золотые типсы" },
-  "ceylon-tea-28": { en: "BOP",                        de: "BOP",                                ru: "BOP" },
-  "ceylon-tea-29": { en: "Silver Tips Tea",            de: "Silver Tips Tee",                    ru: "Чай Серебряные типсы" },
-  "ceylon-tea-30": { en: "White Tips Tea",             de: "White Tips Tee",                     ru: "Чай Белые типсы" },
-  "ceylon-tea-31": { en: "Purple Tea",                 de: "Lila Tee",                           ru: "Фиолетовый чай" },
-  "ceylon-tea-32": { en: "BOPF SP-1",                  de: "BOPF SP-1",                          ru: "BOPF SP-1" },
-  "ceylon-tea-33": { en: "OP",                         de: "OP",                                 ru: "OP" },
-  "ceylon-tea-34": { en: "Merry Gold",                 de: "Merry Gold",                         ru: "Мерри Голд" },
-  "ceylon-tea-35": { en: "Water Lily",                 de: "Seerose",                            ru: "Водяная лилия" },
-  "ceylon-tea-36": { en: "Mint Tea",                   de: "Minztee",                            ru: "Мятный чай" },
-  "ceylon-tea-37": { en: "Black Tea Chocolate",        de: "Schwarztee Schokolade",              ru: "Чёрный чай Шоколад" },
-  "s-item-1":  { en: "Cinnamon Powder",        de: "Zimtpulver",                   ru: "Молотая корица" },
-  "s-item-2":  { en: "Cinnamon Pieces",        de: "Zimtstücke",                   ru: "Кусочки корицы" },
-  "s-item-3":  { en: "White Pepper",           de: "Weißer Pfeffer",               ru: "Белый перец" },
-  "s-item-4":  { en: "Curry Leaves Powder",    de: "Curryblätter Pulver",          ru: "Порошок листьев карри" },
-  "s-item-5":  { en: "Curry Powder",           de: "Curry Pulver",                 ru: "Порошок карри" },
-  "s-item-6":  { en: "Chilli Pieces",          de: "Chillistücke",                 ru: "Кусочки чили" },
-  "s-item-7":  { en: "Roasted Curry Powder",   de: "Geröstetes Curry Pulver",      ru: "Жареный порошок карри" },
-  "s-item-8":  { en: "Turmeric Powder",        de: "Kurkuma Pulver",               ru: "Порошок куркумы" },
-  "s-item-9":  { en: "Clove",                  de: "Nelke",                        ru: "Гвоздика" },
-  "s-item-10": { en: "Pepper Powder",          de: "Pfefferpulver",                ru: "Молотый перец" },
-  "s-item-11": { en: "Rosemary",               de: "Rosmarin",                     ru: "Розмарин" },
-  "s-item-12": { en: "Cardamom",               de: "Kardamom",                     ru: "Кардамон" },
-  "s-item-13": { en: "Roasted Chilli Powder",  de: "Geröstetes Chilipulver",       ru: "Жареный порошок чили" },
-  "s-item-14": { en: "Coriander",              de: "Koriander",                    ru: "Кориандр" },
-  "h-item-1":  { en: "Vanilla Extract",        de: "Vanilleextrakt",               ru: "Экстракт ванили" },
-  "h-item-2":  { en: "Cinnamon Air Freshener", de: "Zimt Lufterfrischer",          ru: "Освежитель воздуха корица" },
-  "h-item-3":  { en: "Cinnamon Oil",           de: "Zimtöl",                       ru: "Масло корицы" },
-  "op-item-1":  { en: "Elephant",                    de: "Elefant",                          ru: "Слон" },
-  "op-item-2":  { en: "Elephant Trio",               de: "Elefanten Trio",                   ru: "Трио слонов" },
-  "op-item-3":  { en: "Coconut Shell Wise Man",      de: "Kokosnuss Weiser Mann",            ru: "Мудрец из кокоса" },
-  "op-item-4":  { en: "Rabbit",                      de: "Hase",                             ru: "Кролик" },
-  "op-item-5":  { en: "Monkey",                      de: "Affe",                             ru: "Обезьяна" },
-  "op-item-6":  { en: "Monkey Face",                 de: "Affengesicht",                     ru: "Мордочка обезьяны" },
-  "op-item-7":  { en: "Mother Monkey",               de: "Mutter Affe",                      ru: "Мама обезьяна" },
-  "op-item-8":  { en: "Elephant & Monkey Carving",  de: "Elefant & Affe Schnitzerei",       ru: "Слон и обезьяна" },
-  "op-item-9":  { en: "Royal Tusker Elephant",       de: "Königlicher Stoßzahn-Elefant",     ru: "Королевский слон" },
-  "op-item-10": { en: "Coconut Shell Old Man",       de: "Kokosnuss Alter Mann",             ru: "Старик из кокоса" },
-  "op-item-11": { en: "Coconut Shell Turtle",        de: "Kokosnuss Schildkröte",            ru: "Черепаха из кокоса" },
-  "op-item-12": { en: "Mother & Baby Elephant",      de: "Mutter und Baby Elefant",          ru: "Мама и детёныш слона" },
+  "ceylon-tea-1":  { en: "Black Tea Mix Fruit",       de: "Schwarztee Gemischte Früchte",       ru: "Чёрный чай Миксфрукты", zh: "混合水果红茶" },
+  "ceylon-tea-2":  { en: "Lotus Flavour Tea",          de: "Lotus Geschmack Tee",                ru: "Чай со вкусом лотоса", zh: "莲花风味茶" },
+  "ceylon-tea-3":  { en: "Nuwaraeliya High Grown Tea", de: "Nuwaraeliya Hochland-Tee",           ru: "Чай Нувараэлия Горный", zh: "努瓦拉埃利亚高山茶" },
+  "ceylon-tea-4":  { en: "Vanilla Tea",                de: "Vanille Tee",                        ru: "Ванильный чай", zh: "香草茶" },
+  "ceylon-tea-5":  { en: "Earl Grey",                  de: "Earl Grey",                          ru: "Эрл Грей", zh: "伯爵茶" },
+  "ceylon-tea-6":  { en: "Lemon Grass",                de: "Zitronengras",                       ru: "Лемонграсс", zh: "柠檬草" },
+  "ceylon-tea-7":  { en: "Green Tea Soursop",          de: "Grüner Tee Soursop",                 ru: "Зелёный чай Саусеп", zh: "刺果番荔枝绿茶" },
+  "ceylon-tea-8":  { en: "Mango Flavour",              de: "Mango Geschmack",                    ru: "Манговый вкус", zh: "芒果风味" },
+  "ceylon-tea-9":  { en: "Black Tea Pineapple",        de: "Schwarztee Ananas",                  ru: "Чёрный чай Ананас", zh: "菠萝红茶" },
+  "ceylon-tea-10": { en: "Black Tea Lotus",            de: "Schwarztee Lotus",                   ru: "Чёрный чай Лотос", zh: "莲花红茶" },
+  "ceylon-tea-11": { en: "Vanilla Flavour",            de: "Vanille Geschmack",                  ru: "Ванильный вкус", zh: "香草风味" },
+  "ceylon-tea-12": { en: "Banana Flavour",             de: "Bananen Geschmack",                  ru: "Банановый вкус", zh: "香蕉风味" },
+  "ceylon-tea-13": { en: "Black Tea Rose",             de: "Schwarztee Rose",                    ru: "Чёрный чай Роза", zh: "玫瑰红茶" },
+  "ceylon-tea-14": { en: "Black Tea Jasmine",          de: "Schwarztee Jasmin",                  ru: "Чёрный чай Жасмин", zh: "茉莉红茶" },
+  "ceylon-tea-15": { en: "Chai Masala",                de: "Chai Masala",                        ru: "Чай Масала", zh: "马萨拉茶" },
+  "ceylon-tea-16": { en: "Passion Fruit",              de: "Passionsfrucht",                     ru: "Маракуйя", zh: "百香果" },
+  "ceylon-tea-17": { en: "Green Tea Mix Fruit",        de: "Grüner Tee Gemischte Früchte",       ru: "Зелёный чай Миксфрукты", zh: "混合水果绿茶" },
+  "ceylon-tea-18": { en: "Black Tea Mint",             de: "Schwarztee Minze",                   ru: "Чёрный чай Мята", zh: "薄荷红茶" },
+  "ceylon-tea-19": { en: "Ginger Flavour",             de: "Ingwer Geschmack",                   ru: "Имбирный вкус", zh: "生姜风味" },
+  "ceylon-tea-20": { en: "Black Tea 1001 Night",       de: "Schwarztee 1001 Nacht",              ru: "Чёрный чай 1001 ночь", zh: "一千零一夜红茶" },
+  "ceylon-tea-21": { en: "Green Tea",                  de: "Grüner Tee",                         ru: "Зелёный чай", zh: "绿茶" },
+  "ceylon-tea-22": { en: "PEKOE-1",                    de: "PEKOE-1",                            ru: "ПЕКО-1", zh: "白毫-1" },
+  "ceylon-tea-23": { en: "Black Tea FFEX-SP1",         de: "Schwarztee FFEX-SP1",                ru: "Чёрный чай FFEX-SP1", zh: "FFEX-SP1红茶" },
+  "ceylon-tea-24": { en: "Black Tea BOP",              de: "Schwarztee BOP",                     ru: "Чёрный чай BOP", zh: "BOP红茶" },
+  "ceylon-tea-25": { en: "Black Tea Pekoe",            de: "Schwarztee Pekoe",                   ru: "Чёрный чай Пеко", zh: "白毫红茶" },
+  "ceylon-tea-26": { en: "Black Tea OP",               de: "Schwarztee OP",                      ru: "Чёрный чай OP", zh: "OP红茶" },
+  "ceylon-tea-27": { en: "Golden Tips Tea",            de: "Golden Tips Tee",                    ru: "Чай Золотые типсы", zh: "金尖茶" },
+  "ceylon-tea-28": { en: "BOP",                        de: "BOP",                                ru: "BOP", zh: "BOP" },
+  "ceylon-tea-29": { en: "Silver Tips Tea",            de: "Silver Tips Tee",                    ru: "Чай Серебряные типсы", zh: "银尖茶" },
+  "ceylon-tea-30": { en: "White Tips Tea",             de: "White Tips Tee",                     ru: "Чай Белые типсы", zh: "白尖茶" },
+  "ceylon-tea-31": { en: "Purple Tea",                 de: "Lila Tee",                           ru: "Фиолетовый чай", zh: "紫茶" },
+  "ceylon-tea-32": { en: "BOPF SP-1",                  de: "BOPF SP-1",                          ru: "BOPF SP-1", zh: "BOPF SP-1" },
+  "ceylon-tea-33": { en: "OP",                         de: "OP",                                 ru: "OP", zh: "OP" },
+  "ceylon-tea-34": { en: "Merry Gold",                 de: "Merry Gold",                         ru: "Мерри Голд", zh: "万寿菊" },
+  "ceylon-tea-35": { en: "Water Lily",                 de: "Seerose",                            ru: "Водяная лилия", zh: "睡莲" },
+  "ceylon-tea-36": { en: "Mint Tea",                   de: "Minztee",                            ru: "Мятный чай", zh: "薄荷茶" },
+  "ceylon-tea-37": { en: "Black Tea Chocolate",        de: "Schwarztee Schokolade",              ru: "Чёрный чай Шоколад", zh: "巧克力红茶" },
+  "s-item-1":  { en: "Cinnamon Powder",        de: "Zimtpulver",                   ru: "Молотая корица", zh: "肉桂粉" },
+  "s-item-2":  { en: "Cinnamon Pieces",        de: "Zimtstücke",                   ru: "Кусочки корицы", zh: "肉桂块" },
+  "s-item-3":  { en: "White Pepper",           de: "Weißer Pfeffer",               ru: "Белый перец", zh: "白胡椒" },
+  "s-item-4":  { en: "Curry Leaves Powder",    de: "Curryblätter Pulver",          ru: "Порошок листьев карри", zh: "咖喱叶粉" },
+  "s-item-5":  { en: "Curry Powder",           de: "Curry Pulver",                 ru: "Порошок карри", zh: "咖喱粉" },
+  "s-item-6":  { en: "Chilli Pieces",          de: "Chillistücke",                 ru: "Кусочки чили", zh: "辣椒块" },
+  "s-item-7":  { en: "Roasted Curry Powder",   de: "Geröstetes Curry Pulver",      ru: "Жареный порошок карри", zh: "烤咖喱粉" },
+  "s-item-8":  { en: "Turmeric Powder",        de: "Kurkuma Pulver",               ru: "Порошок куркумы", zh: "姜黄粉" },
+  "s-item-9":  { en: "Clove",                  de: "Nelke",                        ru: "Гвоздика", zh: "丁香" },
+  "s-item-10": { en: "Pepper Powder",          de: "Pfefferpulver",                ru: "Молотый перец", zh: "胡椒粉" },
+  "s-item-11": { en: "Rosemary",               de: "Rosmarin",                     ru: "Розмарин", zh: "迷迭香" },
+  "s-item-12": { en: "Cardamom",               de: "Kardamom",                     ru: "Кардамон", zh: "小豆蔻" },
+  "s-item-13": { en: "Roasted Chilli Powder",  de: "Geröstetes Chilipulver",       ru: "Жареный порошок чили", zh: "烤辣椒粉" },
+  "s-item-14": { en: "Coriander",              de: "Koriander",                    ru: "Кориандр", zh: "香菜" },
+  "h-item-1":  { en: "Vanilla Extract",        de: "Vanilleextrakt",               ru: "Экстракт ванили", zh: "香草提取物" },
+  "h-item-2":  { en: "Cinnamon Air Freshener", de: "Zimt Lufterfrischer",          ru: "Освежитель воздуха корица", zh: "肉桂空气清新剂" },
+  "h-item-3":  { en: "Cinnamon Oil",           de: "Zimtöl",                       ru: "Масло корицы", zh: "肉桂油" },
+  "op-item-1":  { en: "Elephant",                    de: "Elefant",                          ru: "Слон", zh: "大象" },
+  "op-item-2":  { en: "Elephant Trio",               de: "Elefanten Trio",                   ru: "Трио слонов", zh: "大象三重奏" },
+  "op-item-3":  { en: "Coconut Shell Wise Man",      de: "Kokosnuss Weiser Mann",            ru: "Мудрец из кокоса", zh: "椰壳智者" },
+  "op-item-4":  { en: "Rabbit",                      de: "Hase",                             ru: "Кролик", zh: "兔子" },
+  "op-item-5":  { en: "Monkey",                      de: "Affe",                             ru: "Обезьяна", zh: "猴子" },
+  "op-item-6":  { en: "Monkey Face",                 de: "Affengesicht",                     ru: "Мордочка обезьяны", zh: "猴脸" },
+  "op-item-7":  { en: "Mother Monkey",               de: "Mutter Affe",                      ru: "Мама обезьяна", zh: "母猴" },
+  "op-item-8":  { en: "Elephant & Monkey Carving",  de: "Elefant & Affe Schnitzerei",       ru: "Слон и обезьяна", zh: "大象和猴子雕刻" },
+  "op-item-9":  { en: "Royal Tusker Elephant",       de: "Königlicher Stoßzahn-Elefant",     ru: "Королевский слон", zh: "皇家大象" },
+  "op-item-10": { en: "Coconut Shell Old Man",       de: "Kokosnuss Alter Mann",             ru: "Старик из кокоса", zh: "椰壳老人" },
+  "op-item-11": { en: "Coconut Shell Turtle",        de: "Kokosnuss Schildkröte",            ru: "Черепаха из кокоса", zh: "椰壳海龟" },
+  "op-item-12": { en: "Mother & Baby Elephant",      de: "Mutter und Baby Elefant",          ru: "Мама и детёныш слона", zh: "母象与小象" },
 };
 
 // ─── Sub-category pill strip ─────────────────────────────────────────────────
@@ -413,12 +425,12 @@ function Products({ lang = "en" }) {
               <div
                 key={item.id}
                 className="relative overflow-hidden group cursor-pointer transition-all duration-500 h-[380px] md:h-[440px]"
-                style={{ boxShadow: "0 2px 12px rgba(27,67,50,0.10)" }}
+                style={{ boxShadow: "0 1px 6px rgba(27,67,50,0.05)" }}
                 onMouseEnter={(e) =>
-                  (e.currentTarget.style.boxShadow = "0 8px 32px rgba(27,67,50,0.22)")
+                  (e.currentTarget.style.boxShadow = "0 4px 16px rgba(27,67,50,0.12)")
                 }
                 onMouseLeave={(e) =>
-                  (e.currentTarget.style.boxShadow = "0 2px 12px rgba(27,67,50,0.10)")
+                  (e.currentTarget.style.boxShadow = "0 1px 6px rgba(27,67,50,0.05)")
                 }
                 onClick={() => navigate(`/product/${item.id}`)}
               >
@@ -434,14 +446,14 @@ function Products({ lang = "en" }) {
                   className="absolute inset-0 transition duration-500"
                   style={{
                     background:
-                      "linear-gradient(to top, rgba(11,31,21,0.85) 0%, rgba(27,67,50,0.12) 50%, transparent 100%)",
+                      "linear-gradient(to top, rgba(11,31,21,0.60) 0%, rgba(27,67,50,0.08) 50%, transparent 100%)",
                   }}
                 />
 
                 {/* Hover tint */}
                 <div
                   className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500"
-                  style={{ background: "rgba(11,31,21,0.08)" }}
+                  style={{ background: "rgba(11,31,21,0.04)" }}
                 />
 
                 {/* Gold top accent */}
