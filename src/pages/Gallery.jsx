@@ -52,7 +52,7 @@ const galleryImages = [
   "https://res.cloudinary.com/dwf8ifbzs/image/upload/v1778322470/ee74726c-1d27-43e2-813c-c6a97195d488.png",
   "https://res.cloudinary.com/dwf8ifbzs/image/upload/v1778322517/bd26cacd-b250-4986-8196-3892c4746546.png",
   "https://res.cloudinary.com/dwf8ifbzs/image/upload/v1778322646/285c0fc8-6394-4b14-bfff-2e28d40bf9ed.png",
-  "https://res.cloudinary.com/dp1jwsapk/image/upload/v1777744881/DSC08052_igwyhb.jpg",
+  "https://res.cloudinary.com/dwf8ifbzs/image/upload/v1778323009/63e38538-99a3-40c7-b9f8-3cdbf29c05ea.png",
 ];
 
 function Gallery({ lang = "en" }) {
