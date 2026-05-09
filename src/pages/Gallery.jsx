@@ -47,6 +47,7 @@ const galleryImages = [
   "https://res.cloudinary.com/dwf8ifbzs/image/upload/v1778323834/caa37238-9f71-47b2-99e1-1faeada0c0a2.png",
   "https://res.cloudinary.com/dwf8ifbzs/image/upload/v1778322070/Screenshot_2026-05-09_155032_itasej.png",
   "https://res.cloudinary.com/dwf8ifbzs/image/upload/v1778322226/e4cbbb66-3730-4873-b4c9-5cdb5875142f.png",
+  "https://res.cloudinary.com/dwf8ifbzs/image/upload/v1778327709/264c6fe0-4261-4b66-bbed-45a1f8005f4a.png",
   "https://res.cloudinary.com/dwf8ifbzs/image/upload/v1778322267/eabfeafc-8057-402a-aa5a-9d46e0b5f59b.png",
   "https://res.cloudinary.com/dwf8ifbzs/image/upload/v1778324054/cfb147ba-f6a6-4125-8a70-8d9c76cb43cd.png",
   "https://res.cloudinary.com/dwf8ifbzs/image/upload/v1778322314/09d32858-dc44-42e7-89ee-6d4b49e930f4.png",
