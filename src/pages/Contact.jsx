@@ -32,6 +32,7 @@ const content = {
     address: "Sri Lanka",
     phone: "+94 77 000 0000",
     emailAddr: "isharateashop@gmail.com",
+    findUs: "Find Us",
   },
   de: {
     brand: "Ishara Tee & Gewürze",
@@ -45,6 +46,7 @@ const content = {
     address: "Sri Lanka",
     phone: "+94 77 000 0000",
     emailAddr: "isharateashop@gmail.com",
+    findUs: "Finden Sie uns",
   },
   ru: {
     brand: "Ishara Чай и Специи",
@@ -58,6 +60,7 @@ const content = {
     address: "Шри-Ланка",
     phone: "+94 77 000 0000",
     emailAddr: "isharateashop@gmail.com",
+    findUs: "Найти нас",
   },
 };
 
@@ -289,6 +292,38 @@ function Contact({ lang = "en" }) {
             </motion.div>
 
           </div>
+        </div>
+
+        {/* ── MAP SECTION ── */}
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-16 lg:pb-24">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
+            className="flex flex-col items-center"
+          >
+            <h2
+              className="text-[#1B4332] premium-title font-bold mb-5 sm:mb-8 text-center"
+              style={{ fontSize: "clamp(1.6rem, 4vw, 2.5rem)" }}
+            >
+              {t.findUs}
+            </h2>
+            <div className="w-16 sm:w-24 h-1 bg-[#D4A373] mx-auto mb-10 sm:mb-12" />
+            
+            <div className="w-full h-[350px] sm:h-[450px] lg:h-[550px] rounded-2xl overflow-hidden shadow-2xl relative border-4 border-white/60 backdrop-blur-sm group">
+              <div className="absolute inset-0 bg-[#D4A373]/10 pointer-events-none z-10 group-hover:bg-transparent transition-colors duration-500" />
+              <iframe
+                title="Map showing Ishara Tea & Spice location in Sri Lanka"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3964.619403757814!2d79.9895317765503!3d6.442891924091613!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ae22f132f0ab959%3A0x6c50b5d7f10ec2a9!2sIshara%20Tea%20%26%20Spice!5e0!3m2!1sen!2slk!4v1778315970245!5m2!1sen!2slk"
+                className="absolute inset-0 w-full h-full grayscale-[20%] contrast-125 group-hover:grayscale-0 transition-all duration-500"
+                style={{ border: 0 }}
+                allowFullScreen=""
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+              ></iframe>
+            </div>
+          </motion.div>
         </div>
 
       </div>
