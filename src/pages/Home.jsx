@@ -80,6 +80,7 @@ const heroMedia = [
     src: "https://res.cloudinary.com/dp1jwsapk/video/upload/q_auto,f_auto/v1777730496/C3067_ffeobb.mp4",
     poster: "https://res.cloudinary.com/dp1jwsapk/image/upload/w_800,q_30,f_auto/v1777731478/DSC08410_qmgcah.jpg"
   },
+  { type: "image", src: cdn("https://res.cloudinary.com/dwf8ifbzs/image/upload/v1778322814/d74e872a-3c96-4858-b64f-91b1a5a97d98.png") },
   { type: "image", src: cdn("https://res.cloudinary.com/dp1jwsapk/image/upload/v1777731478/DSC08410_qmgcah.jpg") },
   { type: "image", src: cdn("https://res.cloudinary.com/dp1jwsapk/image/upload/v1777731478/DSC08417_xq4tb3.jpg") },
   { type: "image", src: cdn("https://res.cloudinary.com/dp1jwsapk/image/upload/v1777731476/DSC08425_dfnxkg.jpg") },
