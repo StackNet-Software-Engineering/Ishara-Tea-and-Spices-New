@@ -174,7 +174,7 @@ function Gallery({ lang = "en" }) {
               >
                 <img
                   src={cdnThumb(image)}
-                  alt={`Ishara Tea & Spices photo ${index + 1}`}
+                  alt={`Ishara Tea & Spices ${index + 1}`}
                   loading="lazy"
                   className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                   style={{ filter: "brightness(1.35) contrast(1.1)" }}
