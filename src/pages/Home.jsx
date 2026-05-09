@@ -387,23 +387,25 @@ function Home({ lang = "en" }) {
           </motion.div>
 
           {/* VIDEO BELOW TOPIC */}
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="w-full max-w-5xl mx-auto overflow-hidden relative group bg-[#1B4332]/10 mb-12 sm:mb-16"
-          >
-            <video
-              className="w-full h-auto max-h-[70vh] object-cover"
-              autoPlay
-              loop
-              muted
-              playsInline
-              src="https://res.cloudinary.com/dwf8ifbzs/video/upload/v1778324897/C3060_uwkrmy.mp4"
-              style={{ filter: "brightness(1.1) contrast(1.05)" }}
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-[#1B4332]/30 to-transparent pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
-          </motion.div>
+          <div className="px-2 sm:px-4 md:px-10 mb-12 sm:mb-16 w-full">
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className="w-full overflow-hidden relative group bg-[#1B4332]/10"
+            >
+              <video
+                className="w-full h-auto max-h-[70vh] object-cover"
+                autoPlay
+                loop
+                muted
+                playsInline
+                src="https://res.cloudinary.com/dwf8ifbzs/video/upload/v1778324897/C3060_uwkrmy.mp4"
+                style={{ filter: "brightness(1.35) contrast(1.1)" }}
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-[#1B4332]/30 to-transparent pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
+            </motion.div>
+          </div>
 
           {/* Responsive gallery: 1 col mobile, 2 col tablet, 3 col desktop */}
           <div className="columns-1 sm:columns-2 lg:columns-3 gap-3 sm:gap-4 md:gap-6 space-y-3 sm:space-y-4 md:space-y-6">
