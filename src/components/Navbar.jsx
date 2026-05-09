@@ -44,6 +44,7 @@ const content = {
 const navLinks = [
   { en: "Home", de: "Startseite", ru: "Главная", zh: "首页", path: "/" },
   { en: "Products", de: "Produkte", ru: "Товары", zh: "产品", path: "/products" },
+  { en: "Gallery", de: "Galerie", ru: "Галерея", zh: "画廊", path: "/gallery" },
   { en: "Contact", de: "Kontakt", ru: "Контакт", zh: "联系", path: "/contact" },
 ];
 
