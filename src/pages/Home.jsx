@@ -18,10 +18,10 @@ const content = {
     historyDesc: `Sri Lanka, formerly known as Ceylon, has a rich history of tea cultivation dating back to 1867 when James Taylor planted the first tea seedlings in the central highlands.\n\nCeylon Tea quickly became famous worldwide for its unique flavor, aroma, and high quality.\n\nOver generations, the tea industry has grown into a symbol of Sri Lankan culture and a major export product, offering varieties like Black, Green, White, and specialty blended teas.\n\nIshara Tea & Spices Center continues this proud heritage by delivering authentic Ceylon tea to visitors and tea lovers alike.`,
     galleryTitle: "Ishara Tea & Spices",
     features: [
-      { title: "100% Ceylon Tea",   desc: "Black, Green, White & Broken Tea selections" },
+      { title: "100% Ceylon Tea", desc: "Black, Green, White & Broken Tea selections" },
       { title: "Herbal Collection", desc: "Natural wellness teas for health and relaxation" },
-      { title: "Premium Spices",    desc: "Ceylon Cinnamon, Pepper, Cardamom, & more" },
-      { title: "Tourist Trusted",   desc: "Fixed prices • English speaking • Gift packs" },
+      { title: "Premium Spices", desc: "Ceylon Cinnamon, Pepper, Cardamom, & more" },
+      { title: "Tourist Trusted", desc: "Fixed prices • English speaking • Gift packs" },
     ],
   },
   de: {
@@ -34,9 +34,9 @@ const content = {
     historyDesc: `Sri Lanka, früher als Ceylon bekannt, hat eine lange Geschichte des Teeanbaus, die 1867 begann, als James Taylor die ersten Teepflanzen in den zentralen Hochländern pflanzte.\n\nCeylon-Tee wurde schnell weltweit für seinen einzigartigen Geschmack, sein Aroma und seine hohe Qualität berühmt.\n\nÜber Generationen hinweg ist die Teeindustrie zu einem Symbol der sri-lankischen Kultur und einem wichtigen Exportprodukt geworden.\n\nIshara Tee & Gewürze setzt dieses stolze Erbe fort und liefert authentischen Ceylon-Tee an Besucher und Teeliebhaber gleichermaßen.`,
     galleryTitle: "Ishara Tee & Gewürze",
     features: [
-      { title: "100% Ceylon Tee",    desc: "Schwarz-, Grün-, Weiß- und gebrochener Tee" },
-      { title: "Kräuterkollektion",  desc: "Natürliche Wellnesstees für Gesundheit und Entspannung" },
-      { title: "Premium Gewürze",    desc: "Ceylon Zimt, Pfeffer, Kardamom und mehr" },
+      { title: "100% Ceylon Tee", desc: "Schwarz-, Grün-, Weiß- und gebrochener Tee" },
+      { title: "Kräuterkollektion", desc: "Natürliche Wellnesstees für Gesundheit und Entspannung" },
+      { title: "Premium Gewürze", desc: "Ceylon Zimt, Pfeffer, Kardamom und mehr" },
       { title: "Touristenvertrauen", desc: "Festpreise • Englischsprachig • Geschenkkörbe" },
     ],
   },
@@ -51,9 +51,9 @@ const content = {
     galleryTitle: "Ishara Чай и Специи",
     features: [
       { title: "100% Цейлонский чай", desc: "Чёрный, зелёный, белый и ломаный чай" },
-      { title: "Травяная коллекция",  desc: "Натуральные велнес-чаи для здоровья и отдыха" },
-      { title: "Премиум специи",      desc: "Цейлонская корица, перец, кардамон и другое" },
-      { title: "Доверие туристов",    desc: "Фиксированные цены • Говорим по-английски • Подарочные наборы" },
+      { title: "Травяная коллекция", desc: "Натуральные велнес-чаи для здоровья и отдыха" },
+      { title: "Премиум специи", desc: "Цейлонская корица, перец, кардамон и другое" },
+      { title: "Доверие туристов", desc: "Фиксированные цены • Говорим по-английски • Подарочные наборы" },
     ],
   },
   zh: {
@@ -161,7 +161,7 @@ function Home({ lang = "en" }) {
   useEffect(() => {
     if (heroMedia[currentMedia].type === "video" && videoRef.current) {
       videoRef.current.currentTime = 0;
-      videoRef.current.play().catch(() => {});
+      videoRef.current.play().catch(() => { });
     }
   }, [currentMedia]);
 
@@ -231,11 +231,11 @@ function Home({ lang = "en" }) {
             })}
           </AnimatePresence>
 
-          <div 
-            className="absolute inset-0 z-0 pointer-events-none" 
+          <div
+            className="absolute inset-0 z-0 pointer-events-none"
             style={{
               background: "linear-gradient(to top, rgba(11,31,21,0.35) 0%, rgba(27,67,50,0.15) 40%, rgba(0,0,0,0.05) 100%)"
-            }} 
+            }}
           />
 
           {/* FIX: Added pt-16 sm:pt-20 to push content below the navbar */}
@@ -336,6 +336,24 @@ function Home({ lang = "en" }) {
                 style={{ fontSize: "clamp(0.85rem, 1.8vw, 1.1rem)" }}>
                 {t.heritage}
               </p>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className="mt-12 sm:mt-16 w-full max-w-5xl mx-auto rounded-xl overflow-hidden relative group bg-[#1B4332]/10"
+            >
+              <video
+                className="w-full h-auto max-h-[70vh] object-cover"
+                autoPlay
+                loop
+                muted
+                playsInline
+                src="https://res.cloudinary.com/dwf8ifbzs/video/upload/v1778324897/C3060_uwkrmy.mp4"
+                style={{ filter: "brightness(1.1) contrast(1.05)" }}
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-[#1B4332]/30 to-transparent pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
             </motion.div>
           </div>
         </div>
